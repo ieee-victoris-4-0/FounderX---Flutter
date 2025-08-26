@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SplashScreen1 extends StatefulWidget{
-    const SplashScreen1({Key? key}) : super(key: key);
+    const SplashScreen1({super.key});
 
     @override
     State<SplashScreen1> createState() => _SplashScreen1State();
