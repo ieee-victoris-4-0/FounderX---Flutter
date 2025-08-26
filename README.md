@@ -47,6 +47,5 @@ Our intelligent assistant bridges this gap by providing:
 
 ### 📱 **Cross-Platform Experience**
 - Native iOS and Android apps
-- Progressive Web App (PWA) support
 - Offline functionality
 - Cloud synchronization
