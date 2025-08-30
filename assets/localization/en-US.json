@@ -1,0 +1,17 @@
+{
+    "onboarding1":{
+        "skip":"Skip",
+        "welcome":"Welcome to",
+        "messege":"Turn your idea into an investor -\nready pitch using your new \nfavorite AI tool."
+    },
+    "onboarding2":{
+        "welcome":"Polish your pitch \ndeck with ",
+        "aiInsights":"AI insights",
+        "messege":"Upload your deck and get instant \nfeedback on clarity, strengths, \nand what investors look for."
+    },
+    "onboarding3":{
+        "welcome1":"Smart",
+        "welcome2":" Investor \nMatching",
+        "messege":"Our AI connects you with \ninvestors who align with your \nindustry, stage, and vision."
+    }
+}
