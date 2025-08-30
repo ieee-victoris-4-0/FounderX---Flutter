@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:founderx/features/onBoarding/presentation/pages/onboarding1.dart';
+import 'features/splash_screen/presentation/pages/splash1.dart';
 
 void main() async{
     WidgetsFlutterBinding.ensureInitialized();
@@ -31,7 +31,7 @@ class MainApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      home:OnBoardingScreen1(),
+      home:SplashScreen1(),
     );
   }
 }
