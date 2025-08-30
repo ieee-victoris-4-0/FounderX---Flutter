@@ -23,10 +23,10 @@ jobs:
           distribution: 'temurin' # Use the Eclipse Temurin distribution
           java-version: '17'
 
-      - name: Install Flutter Version 3.9.0
+      - name: Install Flutter Version 3.35.1
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.9.0' # Use the required Flutter version
+          flutter-version: '3.35.1' # Use the required Flutter version
 
       - name: Install Dependencies
         run: flutter pub get
