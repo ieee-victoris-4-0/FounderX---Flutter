@@ -9,6 +9,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write  # 👈 عشان يقدر يعمل push للتاجات
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -34,10 +37,11 @@ jobs:
       - name: Build APK
         run: flutter build apk --release
 
-      # 👇 نضيف tag أوتوماتيك
       - name: Create Tag
         run: |
           VERSION="v1.0.${{ github.run_number }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git tag $VERSION
           git push origin $VERSION
 
