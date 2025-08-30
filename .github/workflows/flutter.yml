@@ -9,9 +9,6 @@ on:
     branches:
       - main
 
-permissions:
-  contents: write  # 👈 عشان يقدر يعمل push للتاجات
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,13 +20,13 @@ jobs:
       - name: Setup Java 17
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'
+          distribution: 'temurin' # Use the Eclipse Temurin distribution
           java-version: '17'
 
       - name: Install Flutter Version 3.35.1
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.35.1'
+          flutter-version: '3.35.1' # Use the required Flutter version
 
       - name: Install Dependencies
         run: flutter pub get
@@ -37,15 +34,9 @@ jobs:
       - name: Build APK
         run: flutter build apk --release
 
-      - name: Create Tag
-        run: |
-          VERSION="v1.0.${{ github.run_number }}"
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git tag $VERSION
-          git push origin $VERSION
 
       - name: Upload Release APK to GitHub Releases
+        if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
         with:
           files: build/app/outputs/flutter-apk/app-release.apk
