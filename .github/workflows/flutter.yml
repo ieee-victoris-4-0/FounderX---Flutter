@@ -37,6 +37,7 @@ jobs:
 
       - name: Upload to GitHub Release
         uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
         with:
           name: release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
