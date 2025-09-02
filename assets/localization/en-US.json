@@ -1,4 +1,7 @@
 {
+    "errormesseges":{
+        "empty":"Please enter some text"
+    },
     "onboarding1":{
         "skip":"Skip",
         "welcome":"Welcome to",
@@ -13,5 +16,186 @@
         "welcome1":"Smart",
         "welcome2":" Investor \nMatching",
         "messege":"Our AI connects you with \ninvestors who align with your \nindustry, stage, and vision."
+    },
+    "signUp":{
+        "namehint":"Full name",
+        "emailhint":"user@mail.com",
+        "passwordhint":"Password",
+        "signUp":"Sign Up",
+        "verify":"Verify Identity",
+        "or":"Or Sign Up With",
+        "alreadyHaveAccount":"Already have an account? ",
+        "signIn":"Log In"
+    },
+    "signIn":{
+        "emailhint":"user@mail.com",
+        "passwordhint":"Password",
+        "signIn":"Log In",
+        "forgotPassword":"Forgot Password?",
+        "or":"Or Sign In With",
+        "dontHaveAccount":"Don't have an account? ",
+        "signUp":"Sign Up"
+    },
+    "forgotPassword":{
+        "title":"Forgot Password",
+        "subtitle":"Enter your email address and we'll send you a link to reset your password.",
+        "emailhint":"user@mail.com",
+        "send":"Verify your identity"
+    },
+    "VerificationCode":{
+        "title":"Verification Code",
+        "subtitle":"Check your email",
+        "verify":"Verify code",
+        "havent":"Haven’t received a code?",
+        "resend":" Resend"
+
+    },
+    "resetPassword":{
+        "title":"Reset Password",
+        "subtitle":"Enter your new password.",
+        "subtitle2":"Enter your new password.",
+        "passwordhint":"*********",
+        "confirmPassword":"Confirm your new password",
+        "reset":"Create a new password"
+    },
+    "setPassword":{
+        "title":"Create Password",
+        "subtitle":"Enter a strong password",
+        "passwordhint":"*********",
+        "confirmPassword":"Confirm your password",
+        "reset":"Let’s get started!"
+    },
+    "password_criteria":{
+        "1":"Must be at least 8 characters",
+        "2":"Must have special characters like * ( & $ @ ^ !",
+        "3":"Must contain numbers"
+    },
+    "Password_reset_successfully":{
+        "title":"Your Password has been Reset successfully!",
+        "subtitle":"Success is only a few clicks away..."
+    },
+    "Account_created_successfully":{
+        "title":"Your account has been created successfully!",
+        "subtitle":"Success is only a few clicks away..."
+    },
+    "InputTeqnuiqe":{
+        "title":"Review your pitch",
+        "subtitle1":"Let’s get started!",
+        "subtitle2":"Choose the way you’re comfortable with to share your pitch with us",
+        "pitchlabel":"Input Pitch",
+        "datalabel":"Input Data",
+        "next":"Let's go!"
+    },
+    "inputForm":{
+        "title":"Review your pitch",
+        "subtitle":"Fill out your pitch",
+        "subtitle2":"Write what you’ve prepared to showcase your idea to potential investors",
+        "pitch":"Your pitch",
+        "next":"Let's go!"
+    },
+    "setup1":{
+        "title":"Review your pitch",
+        "subtitle":"Start with the basics...",
+        "subtitle2":"What’s your startup’s Name & Slogan?",
+        "step":"Step 1 of 9",
+        "persentage":"11%",
+        "namehint":"Name of startup",
+        "MissionStatement":"Mission Statement",
+        "next":"Next"
+    },
+    "setup2":{
+        "title":"Review your pitch",
+        "subtitle":"A little more advanced",
+        "subtitle2":"What’s your startup’s Field?",
+        "step":"Step 2 of 9",
+        "persentage":"22%",
+        "f1":"Health Care",
+        "f2":"Fintech",
+        "f3":"Technology & Software",
+        "f4":"Consumer & Lifestyle",
+        "next":"Next"
+    },
+    "setup3":{
+        "title":"Review your pitch",
+        "subtitle":"Get to the real deal",
+        "subtitle2":"What real-world problem does your startup solve and how?",
+        "step":"Step 3 of 9",
+        "persentage":"33%",
+        "problem":"Problem Statement:",
+        "Solution":"Your Proposed Solution:",
+        "next":"Next"
+    },
+    "setup4":{
+        "title":"Review your pitch",
+        "subtitle":"Team’s Expertise",
+        "subtitle2":"Team’s level and experience",
+        "step":"Step 4 of 9",
+        "persentage":"44%",
+        "roletitle":"What are some of the roles you have on your team?",
+        "r1":"Project Manager",
+        "r2":"Developers",
+        "r3":"Designers",
+        "r4":"Product Owners",
+        "r5":"Operations",
+        "r6":"Finance",
+        "r7":"Accountants",
+        "r8":"Legal Team",
+        "r9":"Sales",
+        "r10":"Marketing",
+        "next":"Next"
+    },
+    "setup5":{
+        "title":"Review your pitch",
+        "subtitle":"Team Experience Level",
+        "subtitle2":"How experienced on average are your contributors",
+        "step":"Step 5 of 9",
+        "persentage":"55%",
+        "Juniors":"Juniors",
+        "Seniors":"Seniors",
+        "next":"Next"
+    },
+    "setup6":{
+        "title":"Review your pitch",
+        "subtitle":"Founder’s Background",
+        "subtitle2":"Tell us about your qualifications",
+        "step":"Step 6 of 9",
+        "persentage":"66%",
+        "hint1":"Your name",
+        "hint2":"Your role",
+        "next":"Next"
+    },
+    "setup7":{
+        "title":"Review your pitch",
+        "subtitle":"Founder’s Background",
+        "subtitle2":"Tell us about your qualifications",
+        "step":"Step 7 of 9",
+        "persentage":"77%",
+        "hint1":"Your name",
+        "hint2":"Your role",
+        "next":"Next"
+    },
+    "setup8":{
+        "title":"Review your pitch",
+        "subtitle":"What is your target audience",
+        "subtitle2":"Specify your target age group and customer segment",
+        "step":"Step 8 of 9",
+        "persentage":"88%",
+        "aud1":"Gen-Z (12 - 23)",
+        "aud2":"Millennials (24 - 40)",
+        "aud3":"Elderly (41 - 70)",
+        "seg1":"B2C",
+        "seg2":"B2B",
+        "next":"Next"
+    },
+    "setup9":{
+        "title":"Review your pitch",
+        "subtitle":"What’s your fund ask",
+        "subtitle2":"Help us provide better analysis and recommendations for you",
+        "step":"Step 9 of 9",
+        "persentage":"100%",
+        "fund1":"30,000 EGP – 1M EGP",
+        "fund2":"1M – 10M EGP",
+        "fund3":"10M – 75M EGP",
+        "next":"Start Analyzing"
     }
 }

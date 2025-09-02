@@ -12,6 +12,7 @@ class SlidePageRoute extends PageRouteBuilder {
     var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
     return SlideTransition(
+      
       position: animation.drive(tween),
       child: child,
     );

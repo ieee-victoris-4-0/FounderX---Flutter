@@ -3,7 +3,7 @@ import 'package:founderx/core/transitions/slide_page.dart';
 import 'package:founderx/features/onBoarding/presentation/pages/onboarding2.dart';
 import 'package:founderx/features/onBoarding/presentation/widgets/arrows.dart';
 import 'package:founderx/features/onBoarding/presentation/widgets/messegecontainer.dart';
-import '../widgets/progress_bar.dart';
+import '../../../../core/widgets/progress_bar.dart';
 import '../widgets/skip_btn.dart';
 import '../widgets/txt_container1.dart';
 class OnBoardingScreen1 extends StatefulWidget {
