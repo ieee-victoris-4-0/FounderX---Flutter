@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart' show SvgPicture;
 import 'package:founderx/core/transitions/slide_page.dart';
+import 'package:founderx/features/FounderSetUpProfile/presentation/pages/InputTeqnuiqe.dart';
 import 'package:founderx/features/auth/presentation/pages/Forgot_Password.dart';
 import 'package:founderx/features/auth/presentation/widgets/have_account.dart';
 import 'package:founderx/features/auth/presentation/widgets/orSignUp.dart';
@@ -109,31 +110,41 @@ class SignInScreen extends StatelessWidget {
                       ),
                     )),
                     Align(
-                      alignment: Alignment(0,0),
+                      alignment: Alignment(0,0.1),
                       child: Container(
                         margin: EdgeInsets.symmetric(horizontal: 20),
-                        child: SignUpBtn(text: "signIn.signIn", onTap: (){}),
+                        child: SignUpBtn(text: "signIn.signIn", onTap: (){
+                          if(_formKey.currentState!.validate()){
+                            Navigator.push(context, SlidePageRoute(
+                              pageBuilder: (context, animation, secondaryAnimation) => InputTeqnuiqe(),
+                            ));
+                          }
+                        }),
                       ),
                     ),
                     Align(
-                      alignment: Alignment(0,0.3),
+                      alignment: Alignment(0,0.4),
                       child: Container(
                         margin: EdgeInsets.symmetric(horizontal: 20),
                         child: OrSignUp(text: "signIn.or"),
                       ),
                     ),
                     Align(
-                      alignment: Alignment(0,0.55),
+                      alignment: Alignment(0,0.65),
                       child: Container(
                         margin: EdgeInsets.symmetric(horizontal: 20),
                         child: SignUpMethods(),
                       ),
                     ),
                     Align(
-                      alignment: Alignment(0,0.75),
+                      alignment: Alignment(0,0.85),
                       child: Container(
                         margin: EdgeInsets.symmetric(horizontal: 20),
-                        child: AlreadyHaveAccount(text: "signIn.dontHaveAccount", textbtn: "signUp.signUp", onTap: (){}),
+                        child: AlreadyHaveAccount(text: "signIn.dontHaveAccount", textbtn: "signUp.signUp", onTap: (){
+                          Navigator.push(context, SlidePageRoute(
+                            pageBuilder: (context, animation, secondaryAnimation) => InputTeqnuiqe(),
+                          ));
+                        }),
                       ),
                     )
                 ],

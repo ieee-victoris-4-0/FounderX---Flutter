@@ -33,3 +33,12 @@ class SelectedContainerBloc extends Bloc<SelectedEvent, SelectedContainerState> 
     emit(Unselected(choosenContainerField: event.choosenContainerField));
   }
 }
+class SliderBloc extends Bloc<SliderEvent, SliderState> {
+  SliderBloc() : super(SliderValue(value: 0)) {
+    on<SliderValueEvent>(_sliderValue);
+  }
+
+  FutureOr<void> _sliderValue(SliderValueEvent event, Emitter<SliderState> emit) {
+    emit(SliderValue(value: event.value));
+  }
+}

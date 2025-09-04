@@ -11,3 +11,9 @@ class SelectContainerEvent extends SelectedEvent{
 class UnselectContainerEvent extends SelectedEvent{
   UnselectContainerEvent({required super.choosenContainerField});
 }
+class SliderEvent{
+}
+class SliderValueEvent extends SliderEvent{
+  final double value;
+  SliderValueEvent({required this.value});
+}

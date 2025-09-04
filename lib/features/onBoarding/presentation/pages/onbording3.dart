@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:founderx/core/transitions/slide_page.dart';
-import 'package:founderx/features/onBoarding/presentation/pages/onboarding2.dart';
+import 'package:founderx/features/auth/presentation/pages/signIn.dart';
 import 'package:founderx/features/onBoarding/presentation/widgets/arrows.dart';
 import 'package:founderx/features/onBoarding/presentation/widgets/messegecontainer.dart';
 import '../../../../core/widgets/progress_bar.dart';
@@ -42,7 +42,7 @@ class _OnBoardingScreen3State extends State<OnBoardingScreen3> {
                   InkWell(
                     onTap: (){
                       Navigator.of(context).push(SlidePageRoute(pageBuilder: (context, animation, secondaryAnimation) {
-                        return OnBoardingScreen2();
+                        return SignInScreen();
                       }));
                     },
                     child: SkipBtn()),
@@ -75,7 +75,7 @@ class _OnBoardingScreen3State extends State<OnBoardingScreen3> {
                       child: RightArrow()),
                       SizedBox(width: 20,),
                     Container(
-                      child: LeftArrow(widget: OnBoardingScreen2())),
+                      child: LeftArrow(widget: SignInScreen())),
                         
                       ],
                     ),

@@ -10,7 +10,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../widgets/txtfields.dart';
 
 class Setup1 extends StatelessWidget {
-   Setup1({Key? key}) : super(key: key);
+   Setup1({super.key});
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -71,7 +71,7 @@ class Setup1 extends StatelessWidget {
               alignment: Alignment(0, -0.1),
               child: Form(
                 key: formKey,
-                child: Container(
+                child: SizedBox(
                   height: 150,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

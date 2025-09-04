@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 class NextBtn extends StatelessWidget {
   final String text;
   final Function() onTap;
-  const NextBtn({Key? key, required this.text, required this.onTap}) : super(key: key);
+  const NextBtn({super.key, required this.text, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

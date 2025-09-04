@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:founderx/core/transitions/slide_page.dart';
+import 'package:founderx/features/FounderSetUpProfile/presentation/pages/setup4.dart';
 import 'package:founderx/features/FounderSetUpProfile/presentation/widgets/inputfield.dart';
 import 'package:founderx/features/FounderSetUpProfile/presentation/widgets/nextBtn.dart';
 import 'package:founderx/features/FounderSetUpProfile/presentation/widgets/progressBar.dart';
@@ -8,8 +9,9 @@ import 'package:founderx/features/FounderSetUpProfile/presentation/widgets/title
 import 'package:google_fonts/google_fonts.dart';
 
 class Setup3 extends StatelessWidget {
-   Setup3({Key? key});
-  final formKey = GlobalKey<FormState>();
+   Setup3({super.key});
+  final formKey1 = GlobalKey<FormState>();
+  final formKey2 = GlobalKey<FormState>();
   final TextEditingController textProblemController = TextEditingController();
   final TextEditingController textSolutionController = TextEditingController();
 
@@ -34,7 +36,7 @@ class Setup3 extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(
-                            tr("setup2.subtitle"),
+                            tr("setup3.subtitle"),
                             textAlign: TextAlign.center,
                             style: GoogleFonts.raleway(
                               fontSize: 22,
@@ -46,7 +48,7 @@ class Setup3 extends StatelessWidget {
                             child: Container(
                               margin: const EdgeInsets.only(bottom: 10),
                               child: Text(
-                                tr("setup2.subtitle2"),
+                                tr("setup3.subtitle2"),
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.raleway(
                                   fontSize: 18,
@@ -66,34 +68,46 @@ class Setup3 extends StatelessWidget {
             ),
             Align(
               alignment: Alignment(0, -0.1),
-              child: Container(
+              child: SizedBox(
                 height: 250,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(tr("setup3.problem"),
-                    style: GoogleFonts.raleway(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w500,
-                      color: const Color.fromRGBO(0, 0, 0, 1),
-                    ),
-
-                    ),
-                    Inputfield(textEditingController: textProblemController, onchabged:
-                    (value) {
-                        },
-                     height: MediaQuery.of(context).size.width/3,),
-                  ],
+                child: Form(
+                  key: formKey1,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(tr("setup3.problem"),
+                      style: GoogleFonts.raleway(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                        color: const Color.fromRGBO(0, 0, 0, 1),
+                      ),
+                  
+                      ),
+                      Inputfield(textEditingController: textProblemController,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Please enter a problem';
+                        }
+                        return null;
+                      },
+                      onchabged:
+                      (value) {
+                          },
+                       height: MediaQuery.of(context).size.width/3,),
+                    ],
+                  ),
                 ),
               ),
             ),
             Align(
               alignment: Alignment(0, 0.6),
-              child: Container(
+              child: SizedBox(
                 height: 250,
-                child: Column(
+                child: Form(
+                  key: formKey2,
+                  child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
@@ -106,22 +120,30 @@ class Setup3 extends StatelessWidget {
                     ),
 
                     ),
-                    Inputfield(textEditingController: textSolutionController, onchabged:
+                    Inputfield(textEditingController: textSolutionController,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Please enter a solution';
+                      }
+                      return null;
+                    },
+                    onchabged:
                     (value) {
                         },
                      height: MediaQuery.of(context).size.width/3,),
                   ],
+                )
                 ),
               ),
             ),
             Align(
               alignment: Alignment(0, 0.8),
               child: NextBtn(
-                text: "setup1.next",
+                text: "setup3.next",
                 onTap: () {
-                  if (formKey.currentState!.validate()) {
+                  if (formKey1.currentState!.validate() && formKey2.currentState!.validate()) {
                     Navigator.push(context, SlidePageRoute(pageBuilder: (context, animation, secondaryAnimation) =>
-                             Setup3()));
+                             Setup4()));
                   }
                 },
               ),

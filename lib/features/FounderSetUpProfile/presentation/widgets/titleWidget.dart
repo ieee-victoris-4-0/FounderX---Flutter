@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TitleWidgetWithBack extends StatelessWidget {
-  const TitleWidgetWithBack({Key? key}) : super(key: key);
+  const TitleWidgetWithBack({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +33,9 @@ class TitleWidgetWithBack extends StatelessWidget {
             ),
           ),
           Container(
+            width: 70,
+            height: 70,
             padding: const EdgeInsets.only(left: 30),
-            width: 80,
             child: SvgPicture.asset('assets/splash_feature/Logo.svg'),
           ),
         ],
@@ -44,15 +45,15 @@ class TitleWidgetWithBack extends StatelessWidget {
 }
 
 class TitleWidgetWithoutBack extends StatelessWidget {
-  const TitleWidgetWithoutBack({Key? key}) : super(key: key);
+  const TitleWidgetWithoutBack({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
     return Container(
-      height: 50,
-      margin: EdgeInsets.only(left: screenWidth / 6),
+      height: 70,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             tr("InputTeqnuiqe.title"),
@@ -63,9 +64,11 @@ class TitleWidgetWithoutBack extends StatelessWidget {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(left: 30),
-            width: 80,
-            child: SvgPicture.asset('assets/splash_feature/Logo.svg'),
+            width: 70,
+            height: 70,
+            child: SvgPicture.asset('assets/splash_feature/Logo.svg',fit: BoxFit.contain,
+            
+            ),
           ),
         ],
       ),

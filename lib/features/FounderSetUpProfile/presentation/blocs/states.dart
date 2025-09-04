@@ -15,4 +15,10 @@ class Selected extends SelectedContainerState{
 class Unselected extends SelectedContainerState{
   Unselected({required super.choosenContainerField});
 }
+class SliderState{
+}
+class SliderValue extends SliderState{
+  final double value;
+  SliderValue({required this.value});
+}
 

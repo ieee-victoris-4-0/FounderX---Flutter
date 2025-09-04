@@ -33,7 +33,7 @@ class _InputTeqnuiqeState extends State<InputTeqnuiqe> {
             ),
             Align(
               alignment: Alignment(0, -0.5),
-              child: Container(
+              child: SizedBox(
                 height: 100,
                 child: Column(
                   children: [

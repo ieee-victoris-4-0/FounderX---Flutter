@@ -6,7 +6,7 @@ class Progressbar extends StatelessWidget {
   final String step;
   final String percentage;
   final double widthFactor;
-  const Progressbar({Key? key, required this.step, required this.percentage, required this.widthFactor}) : super(key: key);
+  const Progressbar({super.key, required this.step, required this.percentage, required this.widthFactor});
 
   @override
   Widget build(BuildContext context) {

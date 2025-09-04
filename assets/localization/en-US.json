@@ -170,8 +170,7 @@
         "subtitle2":"Tell us about your qualifications",
         "step":"Step 7 of 9",
         "persentage":"77%",
-        "hint1":"Your name",
-        "hint2":"Your role",
+        "label":"Your Background",
         "next":"Next"
     },
     "setup8":{
@@ -180,9 +179,11 @@
         "subtitle2":"Specify your target age group and customer segment",
         "step":"Step 8 of 9",
         "persentage":"88%",
+        "audience":"Target Audience",
         "aud1":"Gen-Z (12 - 23)",
         "aud2":"Millennials (24 - 40)",
         "aud3":"Elderly (41 - 70)",
+        "CustomerSegment":"Customer Segment",
         "seg1":"B2C",
         "seg2":"B2B",
         "next":"Next"

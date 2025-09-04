@@ -46,3 +46,63 @@ class SelectableContainer extends StatelessWidget {
     ),
   );}
 }
+class MultiselectionContainer extends StatelessWidget {
+  final SelectedContainerState state;
+  final String field;
+  final String svg;
+  final Function() onTap;
+  const MultiselectionContainer({super.key, required this.state,
+   required this.field, required this.svg, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.all(10),
+        height: 70,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(color: Color.fromRGBO(153, 54, 219, 1,),
+          width: (state.choosenContainerField==field)? 3:1,
+          ),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                SvgPicture.asset(svg,
+                width: 40,
+                ),
+                SizedBox(width: 15,),
+                Text(tr(field),
+                style: GoogleFonts.raleway(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
+                  color:Color.fromRGBO(19, 22, 12, 1)
+                ),
+                ),
+              ],
+            ),
+            (state.choosenContainerField==field)? Icon(Icons.check_circle,
+            color: Color.fromRGBO(153, 54, 219, 1,),
+            
+            size: 25,
+            ):Container(
+              width: 20,
+              height: 20,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(color: Color.fromRGBO(153, 54, 219, 1,),
+                width: 2
+                ),
+              ),  
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
