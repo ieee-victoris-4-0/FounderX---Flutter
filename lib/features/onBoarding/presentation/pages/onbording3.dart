@@ -3,7 +3,7 @@ import 'package:founderx/core/transitions/slide_page.dart';
 import 'package:founderx/features/auth/presentation/pages/signIn.dart';
 import 'package:founderx/features/onBoarding/presentation/widgets/arrows.dart';
 import 'package:founderx/features/onBoarding/presentation/widgets/messegecontainer.dart';
-import '../../../../core/widgets/progress_bar.dart';
+import '../../../../core/presentation/widgets/progress_bar.dart';
 import '../widgets/skip_btn.dart';
 import '../widgets/txt_container1.dart';
 class OnBoardingScreen3 extends StatefulWidget {
@@ -14,6 +14,7 @@ class OnBoardingScreen3 extends StatefulWidget {
 class _OnBoardingScreen3State extends State<OnBoardingScreen3> {
   @override
   Widget build(BuildContext context) {
+    final size=MediaQuery.of(context).size;
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -32,8 +33,10 @@ class _OnBoardingScreen3State extends State<OnBoardingScreen3> {
                     child: FittedBox(
                       fit: BoxFit.cover,  
                       child: Image.asset(
-                        width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height-100,
+width:size.width,
+                        height: (size.width>=800
+
+                        )?size.height*1.3:size.height,
                         "assets/boarding_feature/board3.gif",
                         fit: BoxFit.cover,
                       ),
@@ -41,9 +44,7 @@ class _OnBoardingScreen3State extends State<OnBoardingScreen3> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.of(context).push(SlidePageRoute(pageBuilder: (context, animation, secondaryAnimation) {
-                        return SignInScreen();
-                      }));
+                      Navigator.of(context).push(SlidePageRoute(page: SignInScreen()));
                     },
                     child: SkipBtn()),
                 ],
@@ -63,7 +64,7 @@ class _OnBoardingScreen3State extends State<OnBoardingScreen3> {
                     alignment: Alignment.topCenter,
                     child: ProgressBar(numOfSteps: 3,),
                   ),
-                  Container(alignment: Alignment(-1, -.6),child: TxtContainer3()),
+                  Container(alignment: Alignment(-1, -.7),child: TxtContainer3()),
                   Container(alignment: Alignment(-1, 0.1),child: MessegeContainer(messege: "onboarding3.messege")),
                   Container(
                     alignment: Alignment(1, 0.9),

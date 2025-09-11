@@ -17,6 +17,7 @@ class InputForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size=MediaQuery.of(context).size;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: BlocProvider(
@@ -34,7 +35,7 @@ class InputForm extends StatelessWidget {
                   Align(
                     alignment: const Alignment(0, -0.65),
                     child: SizedBox(
-                      height: 100,
+                      height: size.height*0.3,
                       child: Column(
                         children: [
                           Text(

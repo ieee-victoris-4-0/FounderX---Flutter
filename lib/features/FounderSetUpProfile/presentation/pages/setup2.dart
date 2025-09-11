@@ -27,6 +27,7 @@ class Setup2 extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
+    final size=MediaQuery.of(context).size;
     return  Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
@@ -40,14 +41,14 @@ class Setup2 extends StatelessWidget {
             Align(
                     alignment: const Alignment(0, -0.65),
                     child: SizedBox(
-                      height: 100,
+                      height: size.height*0.25,
                       child: Column(
                         children: [
                           Text(
                             tr("setup2.subtitle"),
                             textAlign: TextAlign.center,
                             style: GoogleFonts.raleway(
-                              fontSize: 22,
+                              fontSize: size.width*0.045,
                               fontWeight: FontWeight.w500,
                               color: const Color.fromRGBO(153, 54, 219, 1),
                             ),
@@ -59,7 +60,7 @@ class Setup2 extends StatelessWidget {
                                 tr("setup2.subtitle2"),
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.raleway(
-                                  fontSize: 18,
+                                  fontSize: size.width*0.04,
                                   fontWeight: FontWeight.w500,
                                   color: const Color.fromRGBO(15, 15, 15, 1),
                                 ),
@@ -72,7 +73,7 @@ class Setup2 extends StatelessWidget {
                   ),
             Align(
               alignment: Alignment(0, -0.45),
-              child:Progressbar(step: "setup2.step", percentage: "setup2.persentage", widthFactor: 0.33) 
+              child:Progressbar(step: "setup2.step", percentage: "setup2.persentage", widthFactor: 0.2) 
             ),
             Align(
               alignment: Alignment(0, 0.4),
@@ -101,8 +102,7 @@ class Setup2 extends StatelessWidget {
               child: NextBtn(
                 text: "setup2.next",
                 onTap: () {
-                    Navigator.push(context, SlidePageRoute(pageBuilder: (context, animation, secondaryAnimation) =>
-                             Setup3()));
+                    Navigator.push(context, SlidePageRoute(page: Setup3()));
                 },
               ),
             )

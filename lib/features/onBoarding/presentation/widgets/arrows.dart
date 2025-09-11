@@ -9,9 +9,7 @@ class LeftArrow extends StatelessWidget {
     return
           InkWell(
             onTap: (){
-              Navigator.of(context).push(SlidePageRoute(pageBuilder: (context, animation, secondaryAnimation) {
-                return widget;
-              }));
+              Navigator.of(context).push(SlidePageRoute(page: widget));
             },
             child: Container(
               width: 50,

@@ -12,11 +12,12 @@ class Analyzebutton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size=MediaQuery.of(context).size;
     return InkWell(
       onTap: onTap,
       child: Container(
         width: double.infinity,
-        height: 60,
+        height: size.height*0.07,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.centerLeft,
@@ -37,7 +38,7 @@ class Analyzebutton extends StatelessWidget {
             children: [
               Text(tr(text),
               style: GoogleFonts.raleway(
-                fontSize: 20,
+                fontSize: size.width*0.05,
                 fontWeight: FontWeight.w500,
                 color: Color.fromRGBO(247, 247, 247, 1)
               ),
@@ -46,7 +47,7 @@ class Analyzebutton extends StatelessWidget {
               SizedBox(width: 10,),
               Icon(Icons.arrow_forward_ios,
               color: Color.fromRGBO(247, 247, 247, 1),
-              size: 20,
+              size: size.width*0.06,
               ),
             ],
           ),

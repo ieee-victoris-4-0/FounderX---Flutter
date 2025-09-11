@@ -9,10 +9,11 @@ class NextBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size=MediaQuery.of(context).size;
     return InkWell(
       onTap: onTap,
       child: Container(
-        height: 60,
+        height: size.height*0.07,
         decoration: BoxDecoration(
           color: Color.fromRGBO(153, 54, 219, 1),
           borderRadius: BorderRadius.circular(5),
@@ -23,14 +24,14 @@ class NextBtn extends StatelessWidget {
             children: [
               Text(tr(text),
               style: GoogleFonts.raleway(
-                fontSize: 30,
-                fontWeight: FontWeight.w500,
+                fontSize: size.width*0.06,
+                fontWeight: FontWeight.w600,
                 color: Color.fromRGBO(247, 247, 247, 1)
                       ),),
                       SizedBox(width: 25,),
                       Icon(Icons.arrow_forward_ios,
                       color: Color.fromRGBO(247, 247, 247, 1),
-                      size: 30,
+                      size: size.width*0.06,
                       )
             ],
           )

@@ -10,6 +10,7 @@ class Progressbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size=MediaQuery.of(context).size;
     return Container(
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -20,14 +21,14 @@ class Progressbar extends StatelessWidget {
             children: [
               Text(tr(step),
               style: GoogleFonts.raleway(
-                fontSize: 16,
+                fontSize: size.width*0.035,
                 fontWeight: FontWeight.w500,
                 color: Color.fromRGBO(64, 63, 63, 1)
               ),
               ),
               Text(tr(percentage),
               style: GoogleFonts.raleway(
-                fontSize: 16,
+                fontSize: size.width*0.035,
                 fontWeight: FontWeight.w500,
                 color: Color.fromRGBO(64, 63, 63, 1)
               ),

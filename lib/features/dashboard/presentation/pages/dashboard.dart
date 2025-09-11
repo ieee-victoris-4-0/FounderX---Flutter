@@ -1,134 +1,298 @@
-import 'dart:math' as math;
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-class DashboardScreen extends StatelessWidget {
-   DashboardScreen({super.key});
- final Map<String, double> scores={
-    "Market":5,
-    "Team":5,
-    "Competition":5,
-    "Financials":5,
-    "Traction\n/GTM":5,
-  };
+import 'package:flutter_svg/svg.dart';
+import 'package:founderx/features/dashboard/presentation/widgets/painters/scorecontainer.dart';
+import 'package:founderx/features/dashboard/presentation/widgets/scoreContainerContent.dart';
+import 'package:google_fonts/google_fonts.dart';
+import '../widgets/buttons.dart';
+import '../widgets/painters/performancepainter.dart';
+import '../widgets/painters/progresspainter.dart';
+
+class DashboardScreen extends StatefulWidget {
+  const DashboardScreen({super.key});
+
   @override
-  Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    return Scaffold(
-      body: Center(
-        child: CustomPaint(
-          size: Size(size.width, size.width),
-          painter: PentagonPainter(scores: scores),
+  State<DashboardScreen> createState() => _DashboardScreenState();
+}
+
+class _DashboardScreenState extends State<DashboardScreen> {
+  final Map<String, double> scores = {
+    "Market": 5,
+    "Team": 5,
+    "Competition": 3,
+    "Financials": 5,
+    "Traction\n/GTM": 2,
+  };
+  clickedLabel clicked=clickedLabel.none;
+  @override
+@override
+Widget build(BuildContext context) {
+  final size = MediaQuery.of(context).size;
+  final bottomInset = MediaQuery.of(context).padding.bottom;
+  return  SingleChildScrollView(
+      physics: AlwaysScrollableScrollPhysics(),
+      child: Padding(
+        padding: EdgeInsets.only(bottom: (size.height * 0.18)+bottomInset),
+        child: Column(
+          children: [
+            TweenAnimationBuilder<Offset>(
+              key: UniqueKey(),
+              curve: Curves.elasticInOut,
+              tween: Tween<Offset>(
+                begin: Offset(0, -0.45),
+                end: Offset(0, 0),
+              ),
+              duration: const Duration(seconds: 3),
+              builder: (context, value, child) {
+                return Transform.translate(
+                  offset: Offset(0, value.dy * size.height),
+                  child: Container(
+                    padding: EdgeInsets.only(top: 25),
+                    width: double.infinity,
+                    height: 0.35 * size.height,
+                    decoration: const BoxDecoration(
+                      color: Color.fromARGB(255, 153, 54, 219),
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(25),
+                        bottomRight: Radius.circular(25),
+                      ),
+                    ),
+                    child: LayoutBuilder(
+                      builder: (context, constraints) {
+                        return Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "${tr("dashboard.title")} Mansour",
+                                  style: GoogleFonts.raleway(
+                                    fontSize: size.width * 0.045,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color.fromRGBO(247, 247, 247, 1),
+                                  ),
+                                ),
+                                SvgPicture.asset(
+                                  "assets/dashboard_feature/hand.svg",
+                                  width: size.width*0.08,
+                                  height: size.width*0.08,
+                                ),
+                              ],
+                            ),
+                            TweenAnimationBuilder<double>(
+                              tween: Tween<double>(begin: 0, end: 0.8),
+                              duration: const Duration(seconds: 4),
+                              builder: (context, value, child) {
+                                return CustomPaint(
+                                  size: Size(
+                                    constraints.maxHeight * 0.35,
+                                    constraints.maxHeight * 0.35,
+                                  ),
+                                  painter: RingProgressPainter(value),
+                                  child: SizedBox(
+                                    width: constraints.maxHeight * 0.5,
+                                    height: constraints.maxHeight * 0.5,
+                                    child: Center(
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          FittedBox(
+                                            fit: BoxFit.scaleDown,
+                                            child: Text(
+                                              "Total Score:",
+                                              maxLines: 1,
+                                              style: GoogleFonts.raleway(
+                                                fontSize: (size.width >= 800)
+                                                    ? size.width * 0.022
+                                                    : size.width * 0.028,
+                                                fontWeight: FontWeight.w500,
+                                                color: Color.fromRGBO(247, 247, 247, 1),
+                                              ),
+                                            ),
+                                          ),
+                                          ShaderMask(
+                                            shaderCallback: (bounds) => LinearGradient(
+                                              begin: Alignment.topCenter,
+                                              end: Alignment.bottomCenter,
+                                              colors: [
+                                                Color.fromRGBO(47, 229, 147, 1),
+                                                Color.fromRGBO(227, 189, 253, 1),
+                                              ],
+                                            ).createShader(
+                                              Rect.fromLTWH(0, 0, bounds.width, bounds.height),
+                                            ),
+                                            child: Text(
+                                              "80%",
+                                              style: GoogleFonts.raleway(
+                                                fontSize: (size.width >= 800)
+                                                    ? size.width * 0.05
+                                                    : size.width * 0.06,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                            Text(
+                              tr("dashboard.subtitle"),
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.raleway(
+                                fontSize: (size.width / size.height <= 0.6)
+                                    ? size.width * 0.05
+                                    : size.width * 0.03,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromRGBO(247, 247, 247, 1),
+                              ),
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                  ),
+                );
+              },
+            ),
+            
+            // Performance Section
+            SizedBox(height: 20),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
+                child: Text(
+                  tr("dashboard.subtitle2"),
+                  style: GoogleFonts.raleway(
+                    fontSize: (size.width >= 800)
+                        ? size.width * 0.06
+                        : size.width * 0.07,
+                    fontWeight: FontWeight.w600,
+                    color: Color.fromRGBO(15, 15, 15, 1),
+                  ),
+                ),
+              ),
+            ),
+            
+            SizedBox(
+              width: size.width,
+              height: size.width,
+              child: CustomPaint(
+                size: Size(size.width, size.width),
+                painter: PerformancePainter(scores: scores),
+              ),
+            ),
+            
+            // Insights Section
+            SizedBox(height: 20),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
+                child: Text(
+                  tr("dashboard.subtitle3"),
+                  style: GoogleFonts.raleway(
+                    fontSize: (size.width >= 800)
+                        ? size.width * 0.06
+                        : size.width * 0.07,
+                    fontWeight: FontWeight.w600,
+                    color: Color.fromRGBO(15, 15, 15, 1),
+                  ),
+                ),
+              ),
+            ),
+            
+            // Score Cards Section
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                children: data.map<Widget>((item) {
+                  return Padding(
+                    padding: EdgeInsets.symmetric(
+                      vertical: size.height * 0.02,
+                    ),
+                    child: SizedBox(
+                      width: size.width,
+                      height: size.width * 0.7,
+                      child: CustomPaint(
+                        size: Size(size.width, size.width * 0.7),
+                        painter: ScoreContainer(),
+                        child: ScoreContainerContent(
+                          title: item["title"],
+                          strength: item["strength"],
+                          advice: item["advice"],
+                          score: (item["score"]).toDouble(),
+                        ),
+                      ),
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
+            Container(
+              width: size.width,
+              height: size.height * 0.18,
+              padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  InkWell(
+                    onTap: (){
+                      setState(() {
+                        clicked=clickedLabel.download;
+                      });
+                    },
+                    child: Button(
+                      text: tr("dashboard.DownloadAnalysis"),
+                      svg: "assets/dashboard_feature/download.svg",
+                      clicked: clicked,
+                      buttontype: clickedLabel.download,
+                    ),
+                  ),
+                  InkWell(
+                    onTap: (){
+                      setState(() {
+                        clicked=clickedLabel.reenter;
+                      });
+                    },
+                    child: Button(
+                      text: tr("dashboard.enterpitch"),
+                      svg: "assets/dashboard_feature/renter.svg",
+                      clicked: clicked,
+                      buttontype: clickedLabel.reenter,
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );
+}}
+List data=[
+  {
+    "title":"Competitors",
+    "strength":"Few localized competitors in the region.",
+    "advice":"Clarify differentiation from global apps (MySugr, Omada, Fitbit).",
+    "score":3,
+  },
+  {
+    "title":"Market",
+    "strength":"Big demand for chronic disease solutions",
+    "advice":"Add regional health statistics for credibility",
+    "score":2,
+  },{
+    "title":"Financials",
+    "strength":"""Clear subscription-based business model.""",
+    "advice":"""Show concrete revenue milestones and CAC vs LTV to validate sustainability
+     sd;gsd;gk dskgdskblgds; erhoerther rtyuoerityoer reyorueyoer rtyourety sfdgjsld ryjkre
+      tertyjk oretjyore jerotkyj oertj orjetkiy'kjoerto ;rt;oeo e;rtoijy oe;rtk eorti rto""",
+    "score":3.25,
   }
-}
-
-class PentagonPainter extends CustomPainter {
-  final Map<String, double> scores;
-  PentagonPainter({required this.scores});
-  @override
-  void paint(Canvas canvas, Size size) {
-    
-    final step = (size.width / 15).toInt();
-    final allsteps = step*5;
-    final Offset center = Offset(((size.width / 2).toInt()).toDouble(), ((size.height / 2).toInt()).toDouble());
-
-    final newPath=Path();
-    int c=1;
-    List<Offset> points=[];
-    for (int i = 0; i < allsteps; i +=step) {
-      final path = Path();
-      final int sides = 5; // خماسي
-      final double radius = (step + i).toDouble();
-      for (int j = 0; j <= sides; j++) {
-        double angle = (2 * math.pi * j / sides) - math.pi / 2;
-        double x = center.dx + radius * math.cos(angle);
-        double y = center.dy + radius * math.sin(angle);
-       if(i==allsteps-step && j<5){
-        final labelSpan = TextSpan(
-      text: scores.keys.elementAt(j),
-      style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)
-      , fontSize: 14, fontWeight: FontWeight.w600),
-      
-    );    
-    final labelPainter = TextPainter(
-      text: labelSpan,
-      textAlign: TextAlign.center,
-      textDirection: TextDirection.ltr,
-    );
-        labelPainter.layout(minWidth: 0, maxWidth: size.width);
-    labelPainter.paint(
-      canvas,
-      (y<center.dy)?
-      Offset(x - ((x<center.dx)?labelPainter.width+40:labelPainter.width) / 2, y - ((x!=center.dx)?labelPainter.height+60:labelPainter.height+20) / 2):
-      Offset(x - (labelPainter.width) / 2, y - (labelPainter.height-40) / 2),
-    );
-          double xn=center.dx + (scores.values.elementAt(j)/5)*radius * math.cos(angle);
-          double yn=center.dy + (scores.values.elementAt(j)/5)*radius * math.sin(angle);
-          final offset=Offset(xn, yn);
-          if(j==0){
-            newPath.moveTo(xn, yn);
-          }else{
-            newPath.lineTo(xn, yn);
-          }
-          points.add(offset);          
-        }
-        if (j == 0) {
-      path.moveTo(x, y);
-      final textSpan = TextSpan(
-      text: c.toString(),
-      style: TextStyle(color: Colors.grey, fontSize: 14, fontWeight: FontWeight.bold),
-      
-    );
-    c++;
-
-    final textPainter = TextPainter(
-      text: textSpan,
-      textAlign: TextAlign.center,
-      textDirection: TextDirection.ltr,
-    );
-        textPainter.layout(minWidth: 0, maxWidth: size.width);
-    textPainter.paint(
-      canvas,
-      Offset(x - textPainter.width / 2, y - (textPainter.height-22) / 2),
-    );
-        } else {
-      path.lineTo(x, y);
-        }
-      }
-      newPath.close();
-          final paint=Paint()
-            ..strokeWidth=4
-            ..color=Color.fromARGB(255, 153, 54, 219)
-            ..style=PaintingStyle.stroke;
-          canvas.drawPath(newPath, paint);
-          final paint2=Paint()
-            ..color = Colors.purple.withValues(alpha: 0.3) // 30% بس من اللون
-            ..style = PaintingStyle.fill;
-          canvas.drawPath(newPath, paint2);
-      path.close();
-
-      final borderPaint = Paint()
-        ..color = Color.fromARGB(255, 150, 148, 148)
-        ..strokeWidth = 3
-        ..style = PaintingStyle.stroke;
-      canvas.drawPath(path, borderPaint);
-      }
-      
-      for(Offset offset in points){
-                final centerPaint = Paint()
-            ..color = Color.fromARGB(255, 153, 54, 219)
-            ..style = PaintingStyle.fill;
-          canvas.drawCircle(offset, 4, centerPaint);
-          final paint=Paint()
-            ..strokeWidth=4
-            ..color=Color.fromARGB(255, 153, 54, 219)
-            ..style=PaintingStyle.stroke;
-          canvas.drawPath(newPath, paint);
-    }
-
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => false;
-}
+];

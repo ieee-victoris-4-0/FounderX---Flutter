@@ -7,6 +7,7 @@ class TxtContainer1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size=MediaQuery.of(context).size;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
@@ -18,7 +19,7 @@ class TxtContainer1 extends StatelessWidget {
                 tr("onboarding1.welcome"),
                 style: GoogleFonts.raleway(
                   color: Color.fromRGBO(15, 15, 15, 1),
-                  fontSize: 27,
+                  fontSize: (size.width>=800)?size.width*0.06:size.width*0.07,
                   fontWeight: FontWeight.w700,
                 ),
               ),
@@ -34,7 +35,7 @@ class TxtContainer1 extends StatelessWidget {
                       text: "Founder",
                       style: GoogleFonts.raleway(
                         color: Color.fromRGBO(153, 54, 219, 1),
-                        fontSize: 25,
+                        fontSize: (size.width>=800)?size.width*0.06:size.width*0.07,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
@@ -42,7 +43,7 @@ class TxtContainer1 extends StatelessWidget {
                       text: " X",
                       style: GoogleFonts.raleway(
                         color: Color.fromRGBO(81, 246, 171, 1),
-                        fontSize: 25,
+                        fontSize: (size.width>=800)?size.width*0.06:size.width*0.07,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
@@ -61,6 +62,7 @@ class TxtContainer2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size=MediaQuery.of(context).size;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20),
             child:
@@ -71,7 +73,7 @@ class TxtContainer2 extends StatelessWidget {
                       text: tr("onboarding2.welcome"),
                       style: GoogleFonts.raleway(
                         color: Color.fromRGBO(15, 15, 15, 1),
-                        fontSize: 25,
+                        fontSize: (size.width>=800)?size.width*0.06:size.width*0.07,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
@@ -79,7 +81,7 @@ class TxtContainer2 extends StatelessWidget {
                       text: tr("onboarding2.aiInsights"),
                       style: GoogleFonts.raleway(
                         color: Color.fromRGBO(153, 54, 219, 1),
-                        fontSize: 25,
+                        fontSize: (size.width>=800)?size.width*0.06:size.width*0.07,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
@@ -94,6 +96,7 @@ class TxtContainer3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size=MediaQuery.of(context).size;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20),
             child:
@@ -104,7 +107,7 @@ class TxtContainer3 extends StatelessWidget {
                       text: tr("onboarding3.welcome1"),
                       style: GoogleFonts.raleway(
                         color: Color.fromRGBO(15, 15, 15, 1),
-                        fontSize: 25,
+                        fontSize: (size.width>=800)?size.width*0.06:size.width*0.07,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
@@ -112,7 +115,7 @@ class TxtContainer3 extends StatelessWidget {
                       text: tr("onboarding3.welcome2"),
                       style: GoogleFonts.raleway(
                         color: Color.fromRGBO(153, 54, 219, 1),
-                        fontSize: 25,
+                        fontSize: (size.width>=800)?size.width*0.06:size.width*0.07,
                         fontWeight: FontWeight.w700,
                       ),
                     ),

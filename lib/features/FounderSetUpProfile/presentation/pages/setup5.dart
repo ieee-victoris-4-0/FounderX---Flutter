@@ -20,6 +20,7 @@ class Setup5 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size=MediaQuery.of(context).size;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
@@ -31,14 +32,14 @@ class Setup5 extends StatelessWidget {
             Align(
               alignment: const Alignment(0, -0.65),
               child: SizedBox(
-                height: 100,
+                height: size.height*0.25,
                 child: Column(
                   children: [
                     Text(
                       tr("setup5.subtitle"),
                       textAlign: TextAlign.center,
                       style: GoogleFonts.raleway(
-                        fontSize: 22,
+                        fontSize: size.width*0.045,
                         fontWeight: FontWeight.w500,
                         color: const Color.fromRGBO(153, 54, 219, 1),
                       ),
@@ -50,7 +51,7 @@ class Setup5 extends StatelessWidget {
                           tr("setup5.subtitle2"),
                           textAlign: TextAlign.center,
                           style: GoogleFonts.raleway(
-                            fontSize: 18,
+                            fontSize: size.width*0.04,
                             fontWeight: FontWeight.w500,
                             color: const Color.fromRGBO(15, 15, 15, 1),
                           ),
@@ -66,7 +67,7 @@ class Setup5 extends StatelessWidget {
               child: Progressbar(
                 step: "setup5.step",
                 percentage: "setup5.persentage",
-                widthFactor: 0.55,
+                widthFactor: 0.5,
               ),
             ),
             Align(
@@ -101,20 +102,20 @@ class Setup5 extends StatelessWidget {
             Align(
               alignment: Alignment(0, 0.58),
               child: SizedBox(
-                height: 30,
+                height: size.height*0.05,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(tr("setup5.Juniors"),
                     style: GoogleFonts.raleway(
-                      fontSize: 18,
+                      fontSize: size.width*0.04,
                       fontWeight: FontWeight.w500,
                       color: const Color.fromRGBO(15, 15, 15, 1),
                     ),
                     ),
                     Text(tr("setup5.Seniors"),
                     style: GoogleFonts.raleway(
-                      fontSize: 18,
+                      fontSize: size.width*0.04,
                       fontWeight: FontWeight.w500,
                       color: const Color.fromRGBO(15, 15, 15, 1),
                     ),
@@ -131,8 +132,7 @@ class Setup5 extends StatelessWidget {
                   Navigator.push(
                     context,
                     SlidePageRoute(
-                      pageBuilder: (context, animation, secondaryAnimation) =>
-                          Setup6(),
+                      page: Setup6(),
                     ),
                   );
                 },

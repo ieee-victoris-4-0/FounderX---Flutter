@@ -7,9 +7,10 @@ class OtpWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size=MediaQuery.of(context).size;
     return SizedBox(
-      width: 300,
-      height: 50,
+      width: (size.width>=800)?400:300,
+      height: (size.width>=800)?80:50,
       child: OtpTextField(
         
         borderColor: Color.fromRGBO(153, 54, 219, 1),
@@ -18,8 +19,8 @@ class OtpWidget extends StatelessWidget {
         enabledBorderColor: Color.fromRGBO(153, 54, 219, 1),
         borderRadius: BorderRadius.circular(8),
         showFieldAsBox: true,
-        fieldWidth: 50,
-        fieldHeight: 50,
+        fieldWidth: (size.width>=800)?80:50,
+        fieldHeight: (size.width>=800)?80:50,
         keyboardType: TextInputType.number,
         numberOfFields: 4,
         cursorColor: Color.fromRGBO(153, 54, 219, 1),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:founderx/features/auth/presentation/pages/loadingPage.dart';
 
 class SignUpMethods extends StatelessWidget {
   const SignUpMethods({super.key});
@@ -14,7 +15,7 @@ class SignUpMethods extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           InkWell(
-            onTap: (){},
+            onTap: () async{Navigator.push(context, MaterialPageRoute(builder: (context) =>  SignUpLoadingPage()));},
             child: Container(
               width: 50,
               height: 50,

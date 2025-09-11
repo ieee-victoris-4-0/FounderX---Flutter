@@ -6,17 +6,19 @@ class ProgressBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size=MediaQuery.of(context).size;
     return Container(
+
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         children: List.generate(
           3,
           (index) => Expanded(
             child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 3),
-              height: 10,
+              margin: EdgeInsets.symmetric(horizontal: size.width*0.015),
+              height: size.height*0.013,
               decoration: BoxDecoration(
-                color: (index<numOfSteps)?Color.fromRGBO(81, 246, 171, 1):Color.fromRGBO(252, 252, 252, 1),
+                color: (index<numOfSteps)?Color.fromRGBO(81, 246, 171, 1):Color.fromRGBO(205, 204, 204, 1),
                 borderRadius: BorderRadius.circular(5),
               ),
             ),

@@ -8,35 +8,45 @@ class TitleWidgetWithBack extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size=MediaQuery.of(context).size;
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      height: 70,
+      margin: const EdgeInsets.symmetric(vertical: 10),
+      height: size.height*0.07,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          InkWell(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: const Icon(
-              Icons.arrow_back_ios_new,
-              color: Color.fromRGBO(15, 15, 15, 1),
+          Expanded(
+            flex: 1,
+            child: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: const Icon(
+                Icons.arrow_back_ios_new,
+                color: Color.fromRGBO(15, 15, 15, 1),
+              ),
             ),
           ),
-          Text(
-            tr("inputForm.title"),
-            style: GoogleFonts.raleway(
-              fontSize: 25,
-              fontWeight: FontWeight.w600,
-              color: const Color.fromRGBO(15, 15, 15, 1),
+          Expanded(
+            flex: 6,
+            child: Text(
+              tr("inputForm.title"),
+              style: GoogleFonts.raleway(
+                fontSize: size.width*0.05,
+                fontWeight: FontWeight.w600,
+                color: const Color.fromRGBO(15, 15, 15, 1),
+              ),
             ),
           ),
-          Container(
-            width: 70,
-            height: 70,
-            padding: const EdgeInsets.only(left: 30),
-            child: SvgPicture.asset('assets/splash_feature/Logo.svg'),
+          Expanded(
+            flex: 1,
+            child: SizedBox(
+              height: size.height*0.07,
+              child: SvgPicture.asset('assets/splash_feature/Logo.svg',fit: BoxFit.contain,
+                
+                ),
+            ),
           ),
         ],
       ),
@@ -49,8 +59,9 @@ class TitleWidgetWithoutBack extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 70,
+    final size=MediaQuery.of(context).size;
+    return SizedBox(
+      height: size.height*0.07,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -58,18 +69,12 @@ class TitleWidgetWithoutBack extends StatelessWidget {
           Text(
             tr("InputTeqnuiqe.title"),
             style: GoogleFonts.raleway(
-              fontSize: 25,
+              fontSize: size.width*0.05,
               fontWeight: FontWeight.w600,
               color: Color.fromRGBO(15, 15, 15, 1),
             ),
           ),
-          Container(
-            width: 70,
-            height: 70,
-            child: SvgPicture.asset('assets/splash_feature/Logo.svg',fit: BoxFit.contain,
-            
-            ),
-          ),
+
         ],
       ),
     );

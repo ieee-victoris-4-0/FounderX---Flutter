@@ -4,8 +4,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:founderx/core/transitions/slide_page.dart';
 import 'package:founderx/features/FounderSetUpProfile/presentation/pages/inputForm.dart';
 import 'package:founderx/features/FounderSetUpProfile/presentation/pages/setup1.dart';
-import 'package:founderx/features/FounderSetUpProfile/presentation/widgets/titleWidget.dart';
-import 'package:founderx/features/auth/presentation/widgets/signUpbtn.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 enum ClickedLabel { pitch, data, none }
@@ -21,6 +19,7 @@ class _InputTeqnuiqeState extends State<InputTeqnuiqe> {
   ClickedLabel clickedLabel = ClickedLabel.none;
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
         color: Colors.white,
@@ -29,20 +28,48 @@ class _InputTeqnuiqeState extends State<InputTeqnuiqe> {
           children: [
             Align(
               alignment: Alignment(0, -0.92),
-              child: TitleWidgetWithoutBack(),
+              child: SizedBox(
+                height: size.height * 0.07,
+                child: Stack(
+                  children: [
+                    Align(
+                      alignment: Alignment(0, 0),
+                      child: Text(
+                        tr("InputTeqnuiqe.title"),
+                        style: GoogleFonts.raleway(
+                          fontSize: size.width * 0.055,
+                          fontWeight: FontWeight.w600,
+                          color: Color.fromRGBO(15, 15, 15, 1),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment(1, 0),
+                      child: SizedBox(
+                        width: size.width * 0.12,
+                        height: size.height * 0.07,
+                        child: SvgPicture.asset(
+                          'assets/splash_feature/Logo.svg',
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
             Align(
-              alignment: Alignment(0, -0.5),
+              alignment: Alignment(0, -0.55),
               child: SizedBox(
-                height: 100,
+                height: size.height * 0.17,
                 child: Column(
                   children: [
                     Text(
                       tr("InputTeqnuiqe.subtitle1"),
                       textAlign: TextAlign.center,
                       style: GoogleFonts.raleway(
-                        fontSize: 22,
-                        fontWeight: FontWeight.w500,
+                        fontSize: size.width * 0.06,
+                        fontWeight: FontWeight.w600,
                         color: Color.fromRGBO(153, 54, 219, 1),
                       ),
                     ),
@@ -53,7 +80,7 @@ class _InputTeqnuiqeState extends State<InputTeqnuiqe> {
                           tr("InputTeqnuiqe.subtitle2"),
                           textAlign: TextAlign.center,
                           style: GoogleFonts.raleway(
-                            fontSize: 18,
+                            fontSize: size.width * 0.04,
                             fontWeight: FontWeight.w500,
                             color: Color.fromRGBO(15, 15, 15, 1),
                           ),
@@ -65,9 +92,9 @@ class _InputTeqnuiqeState extends State<InputTeqnuiqe> {
               ),
             ),
             Align(
-              alignment: Alignment(0, 0),
+              alignment: Alignment(0, -0.25),
               child: Container(
-                height: 120,
+                height: size.height * 0.18,
                 margin: EdgeInsets.only(top: 20, left: 20, right: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -77,13 +104,25 @@ class _InputTeqnuiqeState extends State<InputTeqnuiqe> {
                         setState(() {
                           clickedLabel = ClickedLabel.pitch;
                         });
+                        Future.delayed(const Duration(milliseconds: 300), () {
+                          Navigator.push(
+                            context,
+                            SlidePageRoute(page: InputForm()),
+                          ).then((_) {
+                            setState(() {
+                              clickedLabel = ClickedLabel.none;
+                            });
+                          });
+                        });
                       },
                       child: Container(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             AnimatedContainer(
-                              padding: EdgeInsets.all(5),
+                              height: size.height * 0.1,
+                              width: size.width * 0.2,
+                              padding: EdgeInsets.all(10),
                               decoration: BoxDecoration(
                                 color: (clickedLabel != ClickedLabel.pitch)
                                     ? Color.fromRGBO(247, 247, 247, 1)
@@ -98,7 +137,7 @@ class _InputTeqnuiqeState extends State<InputTeqnuiqe> {
                             Text(
                               tr("InputTeqnuiqe.pitchlabel"),
                               style: GoogleFonts.raleway(
-                                fontSize: 18,
+                                fontSize: size.width * 0.04,
                                 fontWeight: FontWeight.w500,
                                 color: Color.fromRGBO(15, 15, 15, 1),
                               ),
@@ -112,13 +151,26 @@ class _InputTeqnuiqeState extends State<InputTeqnuiqe> {
                         setState(() {
                           clickedLabel = ClickedLabel.data;
                         });
+                        Future.delayed(const Duration(milliseconds: 300), () {
+                          Navigator.push(
+                            context,
+                            SlidePageRoute(page: Setup1()),
+                          ).then((_) {
+                            setState(() {
+                              clickedLabel =
+                                  ClickedLabel.none;
+                            });
+                          });
+                        });
                       },
                       child: Container(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             AnimatedContainer(
-                              padding: EdgeInsets.all(5),
+                              padding: EdgeInsets.all(10),
+                              height: size.height * 0.1,
+                              width: size.width * 0.2,
                               duration: Duration(milliseconds: 200),
                               decoration: BoxDecoration(
                                 color: (clickedLabel != ClickedLabel.data)
@@ -133,7 +185,7 @@ class _InputTeqnuiqeState extends State<InputTeqnuiqe> {
                             Text(
                               tr("InputTeqnuiqe.datalabel"),
                               style: GoogleFonts.raleway(
-                                fontSize: 18,
+                                fontSize: size.width * 0.04,
                                 fontWeight: FontWeight.w500,
                                 color: Color.fromRGBO(15, 15, 15, 1),
                               ),
@@ -147,20 +199,20 @@ class _InputTeqnuiqeState extends State<InputTeqnuiqe> {
               ),
             ),
             Align(
-              alignment: Alignment(0, 0.7),
-              child: SignUpBtn(text: "InputTeqnuiqe.next", onTap: () {
-                if(clickedLabel == ClickedLabel.pitch){
-                 Navigator.push(context, SlidePageRoute(pageBuilder: (context, animation, secondaryAnimation) =>
-                             InputForm()));
-                }else if(clickedLabel == ClickedLabel.data){
-                  Navigator.push(context, SlidePageRoute(pageBuilder: (context, animation, secondaryAnimation) =>
-                             Setup1()));
-                }
-              }),
+              alignment: Alignment(0, 0.5),
+              child: SvgPicture.asset(
+                'assets/setUp_profile_feature/input_pitch.svg',
+                fit: BoxFit.contain,
+              ),
             ),
           ],
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 }

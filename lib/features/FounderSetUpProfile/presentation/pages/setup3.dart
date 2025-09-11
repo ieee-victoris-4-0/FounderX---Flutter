@@ -18,6 +18,7 @@ class Setup3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size=MediaQuery.of(context).size;
     return  Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
@@ -32,14 +33,14 @@ class Setup3 extends StatelessWidget {
             Align(
                     alignment: const Alignment(0, -0.65),
                     child: SizedBox(
-                      height: 100,
+                      height: size.height*0.25,
                       child: Column(
                         children: [
                           Text(
                             tr("setup3.subtitle"),
                             textAlign: TextAlign.center,
                             style: GoogleFonts.raleway(
-                              fontSize: 22,
+                              fontSize: size.width*0.045,
                               fontWeight: FontWeight.w500,
                               color: const Color.fromRGBO(153, 54, 219, 1),
                             ),
@@ -51,7 +52,7 @@ class Setup3 extends StatelessWidget {
                                 tr("setup3.subtitle2"),
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.raleway(
-                                  fontSize: 18,
+                                  fontSize: size.width*0.04,
                                   fontWeight: FontWeight.w500,
                                   color: const Color.fromRGBO(15, 15, 15, 1),
                                 ),
@@ -64,12 +65,12 @@ class Setup3 extends StatelessWidget {
                   ),
             Align(
               alignment: Alignment(0, -0.45),
-              child:Progressbar(step: "setup3.step", percentage: "setup3.persentage", widthFactor: 0.33) 
+              child:Progressbar(step: "setup3.step", percentage: "setup3.persentage", widthFactor: 0.3) 
             ),
             Align(
               alignment: Alignment(0, -0.1),
               child: SizedBox(
-                height: 250,
+                height: size.height*0.25,
                 child: Form(
                   key: formKey1,
                   child: Column(
@@ -79,7 +80,7 @@ class Setup3 extends StatelessWidget {
                     children: [
                       Text(tr("setup3.problem"),
                       style: GoogleFonts.raleway(
-                        fontSize: 20,
+                        fontSize: size.width*0.042,
                         fontWeight: FontWeight.w500,
                         color: const Color.fromRGBO(0, 0, 0, 1),
                       ),
@@ -95,7 +96,7 @@ class Setup3 extends StatelessWidget {
                       onchabged:
                       (value) {
                           },
-                       height: MediaQuery.of(context).size.width/3,),
+                       height: MediaQuery.of(context).size.height/5,),
                     ],
                   ),
                 ),
@@ -104,7 +105,7 @@ class Setup3 extends StatelessWidget {
             Align(
               alignment: Alignment(0, 0.6),
               child: SizedBox(
-                height: 250,
+                height: size.height*0.25,
                 child: Form(
                   key: formKey2,
                   child: Column(
@@ -114,7 +115,7 @@ class Setup3 extends StatelessWidget {
                   children: [
                     Text(tr("setup3.Solution"),
                     style: GoogleFonts.raleway(
-                      fontSize: 20,
+                      fontSize: size.width*0.042,
                       fontWeight: FontWeight.w500,
                       color: const Color.fromRGBO(0, 0, 0, 1),
                     ),
@@ -130,20 +131,19 @@ class Setup3 extends StatelessWidget {
                     onchabged:
                     (value) {
                         },
-                     height: MediaQuery.of(context).size.width/3,),
+                     height: MediaQuery.of(context).size.height/5,),
                   ],
                 )
                 ),
               ),
             ),
             Align(
-              alignment: Alignment(0, 0.8),
+              alignment: Alignment(0, 0.9),
               child: NextBtn(
                 text: "setup3.next",
                 onTap: () {
-                  if (formKey1.currentState!.validate() && formKey2.currentState!.validate()) {
-                    Navigator.push(context, SlidePageRoute(pageBuilder: (context, animation, secondaryAnimation) =>
-                             Setup4()));
+                  if (true) {
+                    Navigator.push(context, SlidePageRoute(page: Setup4()));
                   }
                 },
               ),
@@ -152,6 +152,6 @@ class Setup3 extends StatelessWidget {
         ),
       ),
     );
-
+ 
   }
 }

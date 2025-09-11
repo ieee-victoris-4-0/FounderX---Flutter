@@ -97,8 +97,8 @@
         "title":"Review your pitch",
         "subtitle":"Start with the basics...",
         "subtitle2":"What’s your startup’s Name & Slogan?",
-        "step":"Step 1 of 9",
-        "persentage":"11%",
+        "step":"Step 1 of 10",
+        "persentage":"10%",
         "namehint":"Name of startup",
         "MissionStatement":"Mission Statement",
         "next":"Next"
@@ -107,8 +107,8 @@
         "title":"Review your pitch",
         "subtitle":"A little more advanced",
         "subtitle2":"What’s your startup’s Field?",
-        "step":"Step 2 of 9",
-        "persentage":"22%",
+        "step":"Step 2 of 10",
+        "persentage":"20%",
         "f1":"Health Care",
         "f2":"Fintech",
         "f3":"Technology & Software",
@@ -119,8 +119,8 @@
         "title":"Review your pitch",
         "subtitle":"Get to the real deal",
         "subtitle2":"What real-world problem does your startup solve and how?",
-        "step":"Step 3 of 9",
-        "persentage":"33%",
+        "step":"Step 3 of 10",
+        "persentage":"30%",
         "problem":"Problem Statement:",
         "Solution":"Your Proposed Solution:",
         "next":"Next"
@@ -129,8 +129,8 @@
         "title":"Review your pitch",
         "subtitle":"Team’s Expertise",
         "subtitle2":"Team’s level and experience",
-        "step":"Step 4 of 9",
-        "persentage":"44%",
+        "step":"Step 4 of 10",
+        "persentage":"40%",
         "roletitle":"What are some of the roles you have on your team?",
         "r1":"Project Manager",
         "r2":"Developers",
@@ -148,8 +148,8 @@
         "title":"Review your pitch",
         "subtitle":"Team Experience Level",
         "subtitle2":"How experienced on average are your contributors",
-        "step":"Step 5 of 9",
-        "persentage":"55%",
+        "step":"Step 5 of 10",
+        "persentage":"50%",
         "Juniors":"Juniors",
         "Seniors":"Seniors",
         "next":"Next"
@@ -158,8 +158,8 @@
         "title":"Review your pitch",
         "subtitle":"Founder’s Background",
         "subtitle2":"Tell us about your qualifications",
-        "step":"Step 6 of 9",
-        "persentage":"66%",
+        "step":"Step 6 of 10",
+        "persentage":"60%",
         "hint1":"Your name",
         "hint2":"Your role",
         "next":"Next"
@@ -168,17 +168,28 @@
         "title":"Review your pitch",
         "subtitle":"Founder’s Background",
         "subtitle2":"Tell us about your qualifications",
-        "step":"Step 7 of 9",
-        "persentage":"77%",
+        "step":"Step 7 of 10",
+        "persentage":"70%",
         "label":"Your Background",
         "next":"Next"
     },
     "setup8":{
         "title":"Review your pitch",
+        "subtitle":"Your startup’s stage",
+        "subtitle2":"Which stage are you currently at",
+        "step":"Step 8 of 10",
+        "persentage":"80%",
+        "s1":"Seed",
+        "s2":"Early Stage",
+        "s3":"Growing Stage",
+        "next":"Next"
+    },
+    "setup9":{
+        "title":"Review your pitch",
         "subtitle":"What is your target audience",
         "subtitle2":"Specify your target age group and customer segment",
-        "step":"Step 8 of 9",
-        "persentage":"88%",
+        "step":"Step 9 of 10",
+        "persentage":"90%",
         "audience":"Target Audience",
         "aud1":"Gen-Z (12 - 23)",
         "aud2":"Millennials (24 - 40)",
@@ -188,15 +199,58 @@
         "seg2":"B2B",
         "next":"Next"
     },
-    "setup9":{
+    "setup10":{
         "title":"Review your pitch",
         "subtitle":"What’s your fund ask",
         "subtitle2":"Help us provide better analysis and recommendations for you",
-        "step":"Step 9 of 9",
+        "step":"Step 10 of 10",
         "persentage":"100%",
         "fund1":"30,000 EGP – 1M EGP",
         "fund2":"1M – 10M EGP",
         "fund3":"10M – 75M EGP",
         "next":"Start Analyzing"
+    },
+    "dashboard":{
+        "title":"Welcome Back,",
+        "subtitle":"Your pitch is strong!\nFocus on Team & Competition",
+        "subtitle2":"Breakdown",
+        "subtitle3":"Feedback",
+        "DownloadAnalysis":"Download Analysis",
+        "enterpitch":"Re-enter your pitch"
+    },
+    "downloadPdf":{
+        "title":"Your Pitch Analysis Report",
+        "Pitch":"Pitch",
+        "Date_of_Analysis":"Date of Analysis",
+        "Overall_Score":"Overall Score",
+        "btn":"Download as PDF"
+    },
+    "loadingPage":{
+     "title":"Download Analysis",
+     "subtitle":"Download in progress,,,",
+     "done":"Download Done!"
+    },
+    "reEnterPitch":{
+        "title":"Edit your startup’s information",
+        "container1title":"Problem statement & solution",
+        "container1subtitle":"Update your core value proposition",
+        "container2title":"Startup Stage",
+        "container2subtitle":"Idea, MVP, Growth, Scaling",
+        "container3title":"Target Audience",
+        "container3subtitle":"Define your customers & age group",
+        "stage":{
+            "title":"Your startup’s stage",
+            "subtitle":"Which stage are you currently at"
+        }
+      
+    },
+    "editingtitle":"Edit Startup Stage",
+    "failures":{
+        "server":"an internal server error occurred",
+        "network":"a network error occurred",
+        "unknown":"an unknown error occurred"
+    },
+    "investors":{
+     "title":"Top Investors that may be interested in your startup"
     }
 }

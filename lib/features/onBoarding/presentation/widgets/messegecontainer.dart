@@ -7,6 +7,7 @@ class MessegeContainer extends StatelessWidget {
   const MessegeContainer({super.key, required this.messege});
   @override
   Widget build(BuildContext context) {
+    final size=MediaQuery.of(context).size;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
@@ -16,7 +17,7 @@ class MessegeContainer extends StatelessWidget {
             tr(messege),
             style: GoogleFonts.raleway(
               color: Color.fromRGBO(15, 15, 15, 1),
-              fontSize: 18,
+              fontSize: (size.width>=800)?size.width*0.04:size.width*0.05,
               fontWeight: FontWeight.w500,
             ),
           ),

@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PasswordCriteria extends StatelessWidget {
-  const PasswordCriteria({super.key});
+  final Map passwordRef;
+  const PasswordCriteria({super.key,
+  required this.passwordRef,
+   });
 
   @override
   Widget build(BuildContext context) {
+    final size=MediaQuery.of(context).size;
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20),
       child: Column(
@@ -15,8 +19,8 @@ class PasswordCriteria extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(Icons.check_circle_outline,
-              color: Color.fromRGBO(64, 63, 63, 1),
+              Icon(Icons.check_circle_rounded,
+              color:(passwordRef["c1"]==0)? Color.fromRGBO(64, 63, 63, 1):Colors.greenAccent,
               weight: 20,
               
 
@@ -24,7 +28,7 @@ class PasswordCriteria extends StatelessWidget {
               SizedBox(width: 10,),
               Text(tr("password_criteria.1"),
               style: GoogleFonts.raleway(
-                fontSize: 15,
+                fontSize: size.width*0.03,
                 fontWeight: FontWeight.w500,
                 color: Color.fromRGBO(64, 63, 63, 1)
               ),
@@ -34,8 +38,8 @@ class PasswordCriteria extends StatelessWidget {
           SizedBox(height: 10,),
           Row(
             children: [
-              Icon(Icons.check_circle_outline,
-              color: Color.fromRGBO(64, 63, 63, 1),
+              Icon(Icons.check_circle_rounded,
+              color:(passwordRef["c2"]==0)? Color.fromRGBO(64, 63, 63, 1):Colors.greenAccent,
               weight: 20,
               ),
               SizedBox(width: 10,),
@@ -44,10 +48,9 @@ class PasswordCriteria extends StatelessWidget {
                 softWrap: true,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                textScaler: TextScaler.linear(0.9),
                 style: GoogleFonts.raleway(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w600,
+                  fontSize: size.width*0.03,
+                  fontWeight: FontWeight.w500,
                   color: Color.fromRGBO(64, 63, 63, 1)
                 ),
                 ),
@@ -57,14 +60,14 @@ class PasswordCriteria extends StatelessWidget {
           SizedBox(height: 10,),
           Row(
             children: [
-              Icon(Icons.check_circle_outline,
-              color: Color.fromRGBO(64, 63, 63, 1),
+              Icon(Icons.check_circle_rounded,
+              color:(passwordRef["c3"]==0)? Color.fromRGBO(64, 63, 63, 1):Colors.greenAccent,
               weight: 20,
               ),
               SizedBox(width: 10,),
               Text(tr("password_criteria.3"),
               style: GoogleFonts.raleway(
-                fontSize: 15,
+                fontSize: size.width*0.03,
                 fontWeight: FontWeight.w500,
                 color: Color.fromRGBO(64, 63, 63, 1)
               ),

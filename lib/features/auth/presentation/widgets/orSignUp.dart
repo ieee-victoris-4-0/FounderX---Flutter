@@ -7,8 +7,9 @@ class OrSignUp extends StatelessWidget {
   const OrSignUp({super.key, required this.text});
   @override
   Widget build(BuildContext context) {
+  final size=MediaQuery.of(context).size;
     return SizedBox(
-      height: 50,
+      height: size.height*0.05,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -17,7 +18,7 @@ class OrSignUp extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Container(
-              height: 3,
+              height: size.height*0.003,
               decoration: BoxDecoration(
                 color: Color.fromRGBO(153, 54, 219, 1),
                 borderRadius: BorderRadius.circular(5),
@@ -25,12 +26,12 @@ class OrSignUp extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: 2,
+            flex: 3,
             child: Center(
               child: Text(
                 tr(text),
                 style: GoogleFonts.raleway(
-                  fontSize: 20,
+                  fontSize: size.width*0.04,
                   fontWeight: FontWeight.w600,
                   color: Color.fromRGBO(153, 54, 219, 1),
                 ),
@@ -40,7 +41,7 @@ class OrSignUp extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Container(
-              height: 3,
+              height: size.height*0.003,
               decoration: BoxDecoration(
                 color: Color.fromRGBO(153, 54, 219, 1),
                 borderRadius: BorderRadius.circular(5),

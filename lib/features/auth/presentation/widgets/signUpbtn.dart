@@ -9,6 +9,7 @@ class SignUpBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size=MediaQuery.of(context).size;
     return InkWell(
       splashColor: Colors.blue.withAlpha(30),
       highlightColor: Colors.blue.withAlpha(10),
@@ -16,7 +17,7 @@ class SignUpBtn extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: double.infinity,
-        height: 60,
+        height: size.height*0.08,
         decoration: BoxDecoration(
           color: Color.fromRGBO(153, 54, 219, 1),
           borderRadius: BorderRadius.circular(5),
@@ -24,7 +25,7 @@ class SignUpBtn extends StatelessWidget {
         child: Center(
           child: Text(tr(text),
           style: GoogleFonts.raleway(
-            fontSize: 20,
+            fontSize: size.width*0.06,
             fontWeight: FontWeight.w500,
             color: Color.fromRGBO(247, 247, 247, 1)
           ),

@@ -3,7 +3,7 @@ import 'package:founderx/core/transitions/slide_page.dart';
 import 'package:founderx/features/onBoarding/presentation/pages/onbording3.dart';
 import 'package:founderx/features/onBoarding/presentation/widgets/arrows.dart';
 import '../widgets/messegecontainer.dart';
-import '../../../../core/widgets/progress_bar.dart';
+import '../../../../core/presentation/widgets/progress_bar.dart';
 import '../widgets/skip_btn.dart';
 import '../widgets/txt_container1.dart';
 
@@ -17,13 +17,14 @@ class OnBoardingScreen2 extends StatefulWidget {
 class _OnBoardingScreen2State extends State<OnBoardingScreen2> {
   @override
   Widget build(BuildContext context) {
+    final size=MediaQuery.of(context).size;
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
 
         children: [
           Expanded(
-            flex: 7,
+            flex: 6,
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -37,8 +38,10 @@ class _OnBoardingScreen2State extends State<OnBoardingScreen2> {
                     child: FittedBox(
                       fit: BoxFit.cover,  
                       child: Image.asset(
-                        width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height-100,
+                        width:size.width,
+                        height: (size.width>=800
+
+                        )?size.height*1.3:size.height,
                         "assets/boarding_feature/board2.gif",
                         fit: BoxFit.cover,
                       ),
@@ -46,9 +49,7 @@ class _OnBoardingScreen2State extends State<OnBoardingScreen2> {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.of(context).push(SlidePageRoute(pageBuilder: (context, animation, secondaryAnimation) {
-                        return OnBoardingScreen3();
-                      }));
+                      Navigator.of(context).push(SlidePageRoute(page: OnBoardingScreen3()));
                     },
                     child: SkipBtn()),
                 ],
@@ -68,10 +69,10 @@ class _OnBoardingScreen2State extends State<OnBoardingScreen2> {
                     alignment: Alignment.topCenter,
                     child: ProgressBar(numOfSteps: 2,),
                   ),
-                  Container(alignment: Alignment(-1, -.6),child: TxtContainer2()),
-                  Container(alignment: Alignment(-1, 0.1),child: MessegeContainer(messege: "onboarding2.messege")),
+                  Container(alignment: Alignment(-1, -.7),child: TxtContainer2()),
+                  Container(alignment: Alignment(-1, 0.2),child: MessegeContainer(messege: "onboarding2.messege")),
                   Container(
-                    alignment: Alignment(1, 0.9),
+                    alignment: Alignment(1, 1),
                     margin: EdgeInsets.symmetric(horizontal: 15,vertical: 15),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
