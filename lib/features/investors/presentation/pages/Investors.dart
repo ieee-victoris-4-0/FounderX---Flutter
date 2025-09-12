@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:founderx/core/transitions/slide_page.dart';
 import 'package:founderx/features/investors/presentation/pages/investor_profile.dart';
+import 'package:founderx/features/investors/presentation/widgets/progress_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Investors extends StatelessWidget {
@@ -54,7 +55,7 @@ class Investors extends StatelessWidget {
                         page: InvestorProfile(),
                       ));
                     },
-                    child: SizedBox(
+                    child: Container(
                       height: size.height * 0.3,
                       child: Stack(
                         fit: StackFit.expand,
@@ -170,50 +171,7 @@ class Investors extends StatelessWidget {
                                             ),
                                           ],
                                         ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            Expanded(
-                                              child: Container(
-                                                alignment: Alignment.centerLeft,
-                              
-                                                height: size.height * 0.012,
-                                                decoration: BoxDecoration(
-                                                  color: Color.fromRGBO(
-                                                    227,
-                                                    189,
-                                                    253,
-                                                    1,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(5),
-                                                ),
-                                                child: FractionallySizedBox(
-                                                  widthFactor: 0.8,
-                                                  heightFactor: 1,
-                                                  child: Container(
-                                                    alignment:
-                                                        Alignment.centerLeft,
-                                                    decoration: BoxDecoration(
-                                                      color: Color.fromRGBO(
-                                                        153,
-                                                        54,
-                                                        219,
-                                                        1,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                            5,
-                                                          ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
+                                        CompatibilityProgressBar(compatibility: 0.8,),
                                       ],
                                     ),
                                   ),

@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class AuthEntity extends Equatable {
-  final int ? id;
+  final String ? id;
   final String? email;
   final String? fullName;
   final String? password;

@@ -6,6 +6,7 @@ import 'package:founderx/core/transitions/slide_page.dart';
 import 'package:founderx/features/FounderSetUpProfile/presentation/pages/InputTeqnuiqe.dart';
 import 'package:founderx/features/auth/auth_di/auth_di.dart';
 import 'package:founderx/features/auth/data/models/DTO/login_DTO.dart';
+import 'package:founderx/features/auth/domain/entity/auth_entity.dart';
 import 'package:founderx/features/auth/presentation/blocs/blocs.dart';
 import 'package:founderx/features/auth/presentation/blocs/events.dart';
 import 'package:founderx/features/auth/presentation/blocs/states.dart';
@@ -108,6 +109,16 @@ class SignInScreen extends StatelessWidget {
                                         return Container(
                                           margin: EdgeInsets.only(top: 25),
                                           child: PasswordTextField(
+                                            validator:(value) {
+          final bool hasStrongPassword= AuthEntity(password: value).hasStrongPassword['c1']==1&&
+          AuthEntity(password: value).hasStrongPassword['c2']==1&&
+          AuthEntity(password: value).hasStrongPassword['c3']==1;
+          print(hasStrongPassword);
+          if(!hasStrongPassword){
+            return "Please enter a valid password";
+          }
+          return null;
+        },
                                             onTapIcon: () {
                                               passwordVisibilityBloc.add(
                                                 PasswordVisibilityEvent(isPasswordVisible: !passwordVisibilityState.isPasswordVisible),

@@ -8,7 +8,7 @@ class RegisterDto {
    Map<String,dynamic> tojson(){
     return {
       "email":email,
-      "fullName":fullName,
+      "name":fullName,
     };
    }
 }

@@ -1,5 +1,5 @@
 class ServerConfig{
-  static const String baseUrl="https://bfaa78199521.ngrok-free.app";
+  static const String baseUrl="https://1c5ec21acb63.ngrok-free.app";
 }
 class EndPoints{
   static const String register="/api/auth/register";

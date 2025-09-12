@@ -93,6 +93,7 @@ class EmailTextField extends StatelessWidget {
   }
 }
 class PasswordTextField extends StatelessWidget {
+  final FormFieldValidator<String> validator;
   final Function()? onTapIcon;
   final String hintText;
   final bool obsecureText;
@@ -103,23 +104,16 @@ class PasswordTextField extends StatelessWidget {
   final void Function(String)? onsubmit;
   final void Function(PointerEvent)? onTapOutside;
   const PasswordTextField({super.key, required this.hintText, required this.obsecureText,
-   required this.controller, this.isConfirmation, required this.onChanged, this.onTap, this.onsubmit, this.onTapOutside, this.onTapIcon});
+   required this.controller, this.isConfirmation, required this.onChanged, this.onTap, this.onsubmit, this.onTapOutside, this.onTapIcon,
+   required this.validator
+   });
 
   @override
   Widget build(BuildContext context) {
     final size=MediaQuery.of(context).size;
     return Container(
       child: TextFormField(
-        validator: (value) {
-          final bool hasStrongPassword= AuthEntity(password: value).hasStrongPassword['c1']==1&&
-          AuthEntity(password: value).hasStrongPassword['c2']==1&&
-          AuthEntity(password: value).hasStrongPassword['c3']==1;
-          print(hasStrongPassword);
-          if(!hasStrongPassword){
-            return "Please enter a valid password";
-          }
-          return null;
-        },
+        validator: validator,
         onFieldSubmitted: onsubmit,
         onTapOutside: onTapOutside,
         onTap: onTap,

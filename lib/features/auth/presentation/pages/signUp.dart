@@ -35,7 +35,9 @@ class SignUpScreen extends StatelessWidget {
           if (listenerState is SuccessRegisterState) {
             Navigator.of(context).push(
               SlidePageRoute(
-                page: VerificationCodeScreen(isResetPassword: false),
+                page: VerificationCodeScreen(
+                  id: listenerState.id,
+                  isResetPassword: false),
               ),
             );
           }

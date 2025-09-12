@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:founderx/core/exceptions/exceptions.dart';
 import 'package:founderx/core/exceptions/failure.dart';
 import 'package:founderx/features/auth/data/models/DTO/forgetPassword_DTO.dart';
 import 'package:founderx/features/auth/data/models/DTO/login_DTO.dart';
@@ -55,8 +56,13 @@ class AuthDataRepo implements DomainRepository{
     try{
       final result=await  remoteDataSource.register(registerDto.tojson());
       return Right(RegisterModel.fromJson(result));
+    }on UserAlreadyFoundException{
+      return Left(UserAlreadyFoundFailure(message:tr("failures.userAlreadyFound")) );
     }
     catch(e){
+      print("##########################");
+      print(e);
+      print("##########################");
       return Left(ServerFailure(message:tr("failures.server")) );
     }
   }

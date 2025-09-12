@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:founderx/features/auth/auth_di/auth_di.dart';
 import 'package:founderx/features/auth/data/dataSource/remote_datasource.dart';
 
-import '../../../../core/Api/api_client.dart';
 
 class SignUpLoadingPage extends StatefulWidget {
   const SignUpLoadingPage({super.key});
@@ -11,8 +11,9 @@ class SignUpLoadingPage extends StatefulWidget {
 }
 
 class _SignUpLoadingPageState extends State<SignUpLoadingPage> {
+  final RemoteDataSource dr=sl<RemoteDataSource>();
     loginWithGoogle() async{
-        final RemoteDataSource dr=RemoteDataSource(apiClient: ApiClient());
+        
           await dr.signInWithGoogle();
     }
     @override

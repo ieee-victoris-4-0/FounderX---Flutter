@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:founderx/core/presentation/pages/userscaffold.dart';
 import 'package:founderx/core/routes/routingSys.dart';
+import 'package:founderx/features/auth/presentation/pages/signUp.dart';
 
 import 'global_di/global_di.dart';
 void main() async{
@@ -19,11 +20,11 @@ void main() async{
       path: 'assets/localization', 
       fallbackLocale: Locale('en', 'US'),
 
-      child: DevicePreview(
-        builder: (context) => 
-        MainApp(),
-      ),
-      // child: MainApp(),
+      // child: DevicePreview(
+      //   builder: (context) => 
+      //   MainApp(),
+      // ),
+      child: MainApp(),
     ),
   );
   });
@@ -49,8 +50,8 @@ class MainApp extends StatelessWidget {
       );
     },
       // home:InputTeqnuiqe(),
-      // home:SignUpScreen(),
-      home:UserScaffold(),
+      home:SignUpScreen(),
+      // home:UserScaffold(),
       routes: RoutingSys.allRoutes,
     );
   }

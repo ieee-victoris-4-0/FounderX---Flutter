@@ -1,13 +1,16 @@
-class SetPasswordDto {
-  final String password;
-  final String passwordConfirmation;
+import 'package:founderx/features/auth/domain/entity/auth_entity.dart';
+
+class SetPasswordDto extends AuthEntity{
   const SetPasswordDto({
-   required this.password,
-   required this.passwordConfirmation});
+   required super.password,
+   required super.id,
+   required super.passwordConfirmation
+   });
    Map<String,dynamic> tojson(){
     return {
       "password":password,
-      "passwordConfirmation":passwordConfirmation,
+      "password_confirmation":passwordConfirmation,
+      "user_id":id
     };
    }
 }

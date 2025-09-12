@@ -9,7 +9,7 @@ import 'package:get_it/get_it.dart';
 final sl=GetIt.instance;
 authDI(){
   // data source
-  sl.registerLazySingleton<RemoteDataSource>(() => RemoteDataSource(apiClient: sl()));
+  sl.registerLazySingleton<RemoteDataSource>(() => RemoteDataSource(apiClient: sl() , checkConnection: sl()));
   sl.registerLazySingleton<LocalDatasource>(() => LocalDatasource(prefs: sl()));
   // repository
   sl.registerLazySingleton<DomainRepository>(() => AuthDataRepo(remoteDataSource: sl()));

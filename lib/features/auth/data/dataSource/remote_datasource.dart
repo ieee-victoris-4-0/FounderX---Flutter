@@ -1,14 +1,19 @@
 // ignore_for_file: unused_catch_clause
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';
 import 'package:founderx/core/Api/api_client.dart';
 import 'package:founderx/core/constants/server.dart';
 import 'package:founderx/core/exceptions/exceptions.dart';
+import 'package:founderx/core/network_info/check_connection.dart';
 class RemoteDataSource{
   final ApiClient apiClient;
-  RemoteDataSource({required this.apiClient});
+  final CheckConnection checkConnection;
+  RemoteDataSource({required this.apiClient , required this.checkConnection});
   Future<Map<String,dynamic>>  signInWithGoogle() async{
+    if(await checkConnection.isOnline){
    final result= await apiClient.instance.get(EndPoints.loginWithGoogle);
    final url=result.data["data"]["url"];
    try{
@@ -19,16 +24,10 @@ class RemoteDataSource{
 
   print("====================");
     final token = Uri.parse(resultX).queryParameters['token'];
-    final id = Uri.parse(resultX).queryParameters['id'];
-    final name = Uri.parse(resultX).queryParameters['name'];
-    final email = Uri.parse(resultX).queryParameters['email'];
     if (token != null) {
       print("------------------>>>>>>>>>>>>>>>$token");
       return {
         "token":token,
-        "id":id,
-        "name":name,
-        "email":email,
       };
       }
       else{
@@ -36,10 +35,10 @@ class RemoteDataSource{
       }
    }on DioException catch(e){
     throw ServerException();
+   }on HttpException{
+    throw ServerException();
    }
-   catch(e){
-    print(e.toString());
-      if (e is PlatformException && e.code == 'CANCELED') {
+   catch(e){      if (e is PlatformException && e.code == 'CANCELED') {
         print("====================");
         print(e.code);
         print("====================");
@@ -49,19 +48,30 @@ class RemoteDataSource{
     throw ServerException();
   }
    }
+
+    }else{
+      throw(
+        NetworkException()
+      );
+    }
   }
   signInWithFacebook() async{}
    register(Map<String,dynamic> data) async{
     try{
+      print(data);
       final result= await apiClient.instance.post(EndPoints.register,data: data);
-      if(result.statusCode==200){
+      print(result.statusCode);
+      if(result.statusCode==201){
+
         return result.data;
       }
       else{
-        throw ServerException();
+        throw UserAlreadyFoundException();
       }
     }
     catch(e){
+      print("---------------------------");
+      print(e);
       throw ServerException();
     }
 
@@ -77,6 +87,7 @@ class RemoteDataSource{
       }
     }
     catch(e){
+      print(e);
       throw ServerException();
     }
 
@@ -98,7 +109,9 @@ class RemoteDataSource{
   }
    Future<Map<String,dynamic>> verify(Map<String,dynamic> data) async{
     try{
+      print(data);
       final result= await apiClient.instance.post(EndPoints.verifyCode,data: data);
+      print(result.statusCode);
       if(result.statusCode==200){
         return result.data;
       }
@@ -107,6 +120,7 @@ class RemoteDataSource{
       }
     }
     catch(e){
+      print(e);
       throw ServerException();
     }
 

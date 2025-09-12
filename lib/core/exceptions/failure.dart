@@ -26,4 +26,9 @@ class NetworkFailure extends Failure{
   @override
   List<Object?> get props => [message];
 }
+class UserAlreadyFoundFailure extends Failure{
+  const UserAlreadyFoundFailure({required super.message});
+  @override
+  List<Object?> get props => [message];
+}
 

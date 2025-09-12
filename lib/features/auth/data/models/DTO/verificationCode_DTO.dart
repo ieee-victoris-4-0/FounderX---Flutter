@@ -1,11 +1,11 @@
-class VerificationCodeDto {
-  final String email;
-  final String otpConfirmationCode;
-  const VerificationCodeDto({required this.email,
-   required this.otpConfirmationCode});
+import 'package:founderx/features/auth/domain/entity/auth_entity.dart';
+
+class VerificationCodeDto extends AuthEntity{
+  const VerificationCodeDto({required super.id,
+   required super.otpConfirmationCode});
    Map<String,dynamic> toJson(){
     return {
-      "email":email,
+      "user_id":id.toString(),
       "code":otpConfirmationCode,
     };
    }

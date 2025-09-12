@@ -8,7 +8,7 @@ class RegisterModel extends AuthEntity{
     });
    factory RegisterModel.fromJson(Map<String,dynamic> json){
     return RegisterModel(
-      id: json["id"],
+      id: json["user_id"],
       message: json["message"],
     );
    }

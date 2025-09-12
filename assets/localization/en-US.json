@@ -248,7 +248,8 @@
     "failures":{
         "server":"an internal server error occurred",
         "network":"a network error occurred",
-        "unknown":"an unknown error occurred"
+        "unknown":"an unknown error occurred",
+        "userAlreadyFound":"User already found"
     },
     "investors":{
      "title":"Top Investors that may be interested in your startup"

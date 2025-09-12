@@ -83,9 +83,15 @@ class RegisterBloc extends Bloc<RegisterEvent , RegisterState>{
     emit(LoadingRegisterState());
     await registerUseCase.call(event.registerDto).then((value) {
       value.fold((failure){
+        print("=======+++++++++++++++");
+        print(failure.message);
+        print("=======+++++++++++++++");
         emit(ErrorRegisterState(failure: failure));
       }, (success){
-        emit(SuccessRegisterState());
+        print("=======+++++++++++++++");
+        print(success.id);
+        print("=======+++++++++++++++");
+        emit(SuccessRegisterState(id: success.id!));
       });
     });
   }
@@ -125,6 +131,7 @@ class SetPasswordBloc extends Bloc<SetPasswordEvent , SetPasswordState>{
     emit(LoadingSetPasswordState());
     await setPasswordUseCase.call(event.setPasswordDto!).then((value) {
       value.fold((failure){
+        print("^^^^^^^^^^^^^^^^^");
         emit(ErrorSetPasswordState(failure: failure));
       }, (success){
         emit(SuccessSetPasswordState());
