@@ -19,6 +19,16 @@ Our intelligent assistant bridges this gap by providing:
   <img src="assets/splash_feature/splash_icon.png" alt="FounderX App Showcase" width="800"/>
 </div>
 
+<div align="center">
+  <img src="demo_images/IMG-20250913-WA0019.jpg" alt="Demo 1" width="260"/>&nbsp;
+  <img src="demo_images/IMG-20250913-WA0020.jpg" alt="Demo 2" width="260"/>&nbsp;
+  <img src="demo_images/IMG-20250913-WA0021.jpg" alt="Demo 3" width="260"/>
+  <br/>
+  <img src="demo_images/IMG-20250913-WA0022.jpg" alt="Demo 4" width="260"/>&nbsp;
+  <img src="demo_images/IMG-20250913-WA0023.jpg" alt="Demo 5" width="260"/>&nbsp;
+  <img src="demo_images/IMG-20250913-WA0024.jpg" alt="Demo 6" width="260"/>
+</div>
+
 ## ✨ Key Features
 
 ### 🎯 **Intelligent Pitch Builder**

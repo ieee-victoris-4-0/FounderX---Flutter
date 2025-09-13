@@ -7,7 +7,7 @@ import 'package:founderx/core/presentation/blocs/userscaffold_blocs/states.dart'
 import 'package:founderx/core/presentation/widgets/userScaffold_animation.dart';
 import 'package:founderx/features/dashboard/presentation/pages/dashboard.dart';
 import 'package:founderx/features/download_pdf/presentation/pages/downloadPdf.dart';
-import 'package:founderx/features/investors/presentation/pages/investors.dart';
+import 'package:founderx/features/investors/presentation/pages/Investors.dart';
 import 'package:founderx/features/re-enter_pitch/presentation/pages/re-enter_pitch.dart';
 import 'package:founderx/features/settings/presentation/pages/settings.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -114,7 +114,7 @@ class _UserScaffoldState extends State<UserScaffold> {
                               alignment: Alignment(-0.52, -0.95),
                               label: "Download",
                               svgAsset: "assets/core/download.svg",
-                              page: SettingsScreen(),
+                              page: DownloadPdf(),
                               size: size,
                             ),
                           ),
@@ -125,7 +125,7 @@ class _UserScaffoldState extends State<UserScaffold> {
                               alignment: Alignment(0, -0.95),
                               label: "Re-enter",
                               svgAsset: "assets/core/re_enter.svg",
-                              page: SettingsScreen(),
+                              page: ReEnterPitch(),
                               size: size,
                             ),
                           ),
@@ -136,7 +136,7 @@ class _UserScaffoldState extends State<UserScaffold> {
                               alignment: Alignment(0.5, -0.95),
                               label: "Investors",
                               svgAsset: "assets/core/investors.svg",
-                              page: SettingsScreen(),
+                              page: Investors(),
                               size: size,
                             ),
                           ),
