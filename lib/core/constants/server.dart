@@ -7,6 +7,6 @@ class EndPoints{
   static const String loginWithGoogle="/api/auth/google/redirect";
   static const String forgotPassword="/api/forgot-password";
   static const String verifyCode="/api/verify-code";
-  static const String setPassword="/api/reset-password";
+  static const String setPassword="/api/set-password";
   
 }

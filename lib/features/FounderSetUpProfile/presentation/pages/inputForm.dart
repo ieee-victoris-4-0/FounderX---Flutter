@@ -1,9 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:founderx/core/transitions/slide_page.dart';
 import 'package:founderx/features/FounderSetUpProfile/presentation/blocs/blocs.dart';
 import 'package:founderx/features/FounderSetUpProfile/presentation/blocs/events.dart';
 import 'package:founderx/features/FounderSetUpProfile/presentation/blocs/states.dart';
+import 'package:founderx/features/FounderSetUpProfile/presentation/pages/Loading_page.dart';
 import 'package:founderx/features/FounderSetUpProfile/presentation/widgets/titleWidget.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -66,7 +68,7 @@ class InputForm extends StatelessWidget {
                     ),
                   ),
                   Align(
-                    alignment: const Alignment(0, 0.2),
+                    alignment:  Alignment(0, 0.2),
                     child: Inputfield(textEditingController: textEditingController, onchabged:
                     (value) {
                           if (value.isNotEmpty) {
@@ -82,14 +84,14 @@ class InputForm extends StatelessWidget {
                      height: MediaQuery.of(context).size.width - 40,),
                   ),
                   Align(
-                    alignment: const Alignment(0, 0.8),
+                    alignment:  Alignment(0, 0.8),
                     child: Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 20),
+                      margin:  EdgeInsets.symmetric(horizontal: 20),
                       child: Analyzebutton(
                         text: "inputForm.next",
-                        onTap: () {
-                          // Action when button tapped
-                        },
+                        onTap:(textEditingController.text.isNotEmpty)? () {
+                          Navigator.push(context,SlidePageRoute(page:LoadingPage() ));
+                        }:(){},
                         state: state,
                       ),
                     ),

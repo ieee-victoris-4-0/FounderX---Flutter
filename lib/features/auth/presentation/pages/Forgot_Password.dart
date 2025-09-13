@@ -88,7 +88,7 @@ class ForgetPassword extends StatelessWidget {
                     child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 10),
                       child:SignUpBtn(text: "forgotPassword.send", onTap: (){
-                        Navigator.push(context, SlidePageRoute(page: VerificationCodeScreen(isResetPassword: true,id: "6")));
+                        Navigator.push(context, SlidePageRoute(page: VerificationCodeScreen(isResetPassword: true,id: 6)));
                       }),
                     ),
                   ),

@@ -21,11 +21,8 @@ class RemoteDataSource{
     url: url.toString(),
     callbackUrlScheme: "com.example.app",
   );
-
-  print("====================");
     final token = Uri.parse(resultX).queryParameters['token'];
     if (token != null) {
-      print("------------------>>>>>>>>>>>>>>>$token");
       return {
         "token":token,
       };
@@ -78,7 +75,10 @@ class RemoteDataSource{
   }
   Future<Map<String,dynamic>> setpassword(Map<String,dynamic> data) async{
     try{
+      print(data);
+      print(data["user_id"].runtimeType);
       final result= await apiClient.instance.post(EndPoints.setPassword,data: data);
+      print(result.statusCode);
       if(result.statusCode==200){
         return result.data;
       }
@@ -94,15 +94,25 @@ class RemoteDataSource{
   }
    Future<Map<String,dynamic>> login(Map<String,dynamic> data) async{
     try{
+      print(data);
       final result= await apiClient.instance.post(EndPoints.login,data: data);
+      print(result.statusCode);
       if(result.statusCode==200){
         return result.data;
       }
       else{
         throw ServerException();
       }
+    }on DioException catch(e){
+      if(e.response?.statusCode==422){
+        throw InvalidCredentialsException();
+      }
+      else{
+        throw ServerException();
+      }
     }
     catch(e){
+      print(e.toString());
       throw ServerException();
     }
 

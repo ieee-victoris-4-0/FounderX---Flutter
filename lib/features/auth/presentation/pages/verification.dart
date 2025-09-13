@@ -19,7 +19,7 @@ import '../widgets/forget_password_subtitle.dart';
 
 class VerificationCodeScreen extends StatelessWidget {
   final TextEditingController codeController = TextEditingController();
-  final String id;
+  final int id;
   final bool isResetPassword;
   final verificationBloc = sl<VerificationCodeBloc>();
   VerificationCodeScreen({
@@ -48,7 +48,7 @@ class VerificationCodeScreen extends StatelessWidget {
           else if(state is ErrorVerificationCodeState){
              ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
-      content: Text("${state.failure.message}"),
+      content: Text(state.failure.message),
       backgroundColor: Colors.red,
     ),
   );

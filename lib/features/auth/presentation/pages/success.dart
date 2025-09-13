@@ -1,14 +1,30 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:founderx/core/transitions/slide_page.dart';
+import 'package:founderx/features/auth/presentation/pages/signIn.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SuccessScreen extends StatelessWidget {
+class SuccessScreen extends StatefulWidget {
   final bool isResetPassword;
   const SuccessScreen({super.key, required this.isResetPassword});
 
   @override
+  State<SuccessScreen> createState() => _SuccessScreenState();
+}
+
+class _SuccessScreenState extends State<SuccessScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 3), () {
+      if(mounted){
+        Navigator.of(context).push(SlidePageRoute(page: SignInScreen()));
+      }
+    });
+  }
+  @override
   Widget build(BuildContext context) {
-    return isResetPassword ? ResetPasswordSuccessScreen() : SetPasswordSuccessScreen();
+    return widget.isResetPassword ? ResetPasswordSuccessScreen() : SetPasswordSuccessScreen();
   }
 }
 class ResetPasswordSuccessScreen extends StatelessWidget {

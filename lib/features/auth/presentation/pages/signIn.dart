@@ -19,12 +19,22 @@ import 'package:founderx/features/auth/presentation/widgets/textfields.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../widgets/signUpbtn.dart';
 
-class SignInScreen extends StatelessWidget {
+class SignInScreen extends StatefulWidget {
   SignInScreen({super.key});
+
+  @override
+  State<SignInScreen> createState() => _SignInScreenState();
+}
+
+class _SignInScreenState extends State<SignInScreen> {
   final TextEditingController emailController = TextEditingController();
+
   final TextEditingController passwordController = TextEditingController();
+
   final _formKey = GlobalKey<FormState>();
+
   final loginBloc = sl.get<LoginBloc>();
+
   final passwordVisibilityBloc = sl.get<PasswordVisibilityBloc>();
 
   @override
@@ -39,7 +49,11 @@ class SignInScreen extends StatelessWidget {
         listener: (context, state) {
           if (state is SuccessLoginState) {
             Navigator.push(context, SlidePageRoute(page: InputTeqnuiqe()));
-          }
+          }else if(state is ErrorLoginState){
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(state.failure.message)),
+          );
+        }
         },
         child: BlocBuilder<LoginBloc, LoginState>(
           builder: (context, loginState) {

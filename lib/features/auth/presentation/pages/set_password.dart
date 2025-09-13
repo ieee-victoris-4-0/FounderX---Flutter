@@ -19,7 +19,7 @@ import '../widgets/signUpbtn.dart';
 
 class PasswordScreen extends StatelessWidget {
   final bool isResetPassword;
-  final String id;
+  final int id;
   const PasswordScreen({
     super.key,
     required this.isResetPassword,
@@ -33,7 +33,7 @@ class PasswordScreen extends StatelessWidget {
 }
 
 class SetPassword extends StatefulWidget {
-  final String id;
+  final int id;
   const SetPassword({super.key, required this.id});
 
   @override
@@ -73,7 +73,7 @@ class _SetPasswordState extends State<SetPassword> {
           else if(state is ErrorSetPasswordState){
              ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
-      content: Text("${state.failure.message}"),
+      content: Text(state.failure.message),
       backgroundColor: Colors.red,
     ),
   );
@@ -369,7 +369,7 @@ class _SetPasswordState extends State<SetPassword> {
 }
 
 class ResetPassword extends StatelessWidget {
-  final String id;
+  final int id;
   ResetPassword({super.key, required this.id});
 
   final TextEditingController passwordController = TextEditingController();

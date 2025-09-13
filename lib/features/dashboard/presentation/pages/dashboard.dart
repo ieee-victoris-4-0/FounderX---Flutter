@@ -28,11 +28,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
 @override
 Widget build(BuildContext context) {
   final size = MediaQuery.of(context).size;
-  final bottomInset = MediaQuery.of(context).padding.bottom;
   return  SingleChildScrollView(
       physics: AlwaysScrollableScrollPhysics(),
       child: Padding(
-        padding: EdgeInsets.only(bottom: (size.height * 0.18)+bottomInset),
+        padding: EdgeInsets.only(bottom: (size.height * 0.18)),
         child: Column(
           children: [
             TweenAnimationBuilder<Offset>(
@@ -65,12 +64,16 @@ Widget build(BuildContext context) {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(
-                                  "${tr("dashboard.title")} Mansour",
-                                  style: GoogleFonts.raleway(
-                                    fontSize: size.width * 0.045,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color.fromRGBO(247, 247, 247, 1),
+                                Flexible(
+                                  child: Text(
+                                    "${tr("dashboard.title")} Mansour",
+                                    overflow: TextOverflow.ellipsis,
+                                    softWrap: true,
+                                    style: GoogleFonts.raleway(
+                                      fontSize: size.width * 0.045,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color.fromRGBO(247, 247, 247, 1),
+                                    ),
                                   ),
                                 ),
                                 SvgPicture.asset(
@@ -234,43 +237,7 @@ Widget build(BuildContext context) {
                 }).toList(),
               ),
             ),
-            Container(
-              width: size.width,
-              height: size.height * 0.18,
-              padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  InkWell(
-                    onTap: (){
-                      setState(() {
-                        clicked=clickedLabel.download;
-                      });
-                    },
-                    child: Button(
-                      text: tr("dashboard.DownloadAnalysis"),
-                      svg: "assets/dashboard_feature/download.svg",
-                      clicked: clicked,
-                      buttontype: clickedLabel.download,
-                    ),
-                  ),
-                  InkWell(
-                    onTap: (){
-                      setState(() {
-                        clicked=clickedLabel.reenter;
-                      });
-                    },
-                    child: Button(
-                      text: tr("dashboard.enterpitch"),
-                      svg: "assets/dashboard_feature/renter.svg",
-                      clicked: clicked,
-                      buttontype: clickedLabel.reenter,
-                    ),
-                  ),
-                ],
-              ),
-            )
-          ],
+           ],
         ),
       ),
     );

@@ -1,13 +1,14 @@
 import 'package:equatable/equatable.dart';
 
 class AuthEntity extends Equatable {
-  final String ? id;
+  final int ? id;
   final String? email;
   final String? fullName;
   final String? password;
   final String? passwordConfirmation;
   final String? otpConfirmationCode;
   final String? token;
+  final String? message;
   const AuthEntity({
     this.id,
     this.email,
@@ -16,6 +17,7 @@ class AuthEntity extends Equatable {
     this.passwordConfirmation,
     this.otpConfirmationCode,
     this.token,
+    this.message,
   });
     bool get hasValidEmail {
     if (email == null || email!.isEmpty) return false;
@@ -61,5 +63,6 @@ class AuthEntity extends Equatable {
     passwordConfirmation,
     otpConfirmationCode,
     token,
+    message,
   ];
 }

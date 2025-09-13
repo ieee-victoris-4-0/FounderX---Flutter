@@ -24,8 +24,8 @@ class RegisterUseCase{
 class LoginUseCase{
   final DomainRepository domainRepository;
   LoginUseCase({required this.domainRepository});
-  Future<Either<Failure, LoginModel>> call(LoginDto loginModel){
-    return domainRepository.loginUser(loginModel);
+  Future<Either<Failure, LoginModel>> call(LoginDto loginModel) async{
+    return await domainRepository.loginUser(loginModel);
   }
 }
 class VerifyUseCase{

@@ -2,6 +2,7 @@
 import 'package:founderx/features/auth/domain/entity/auth_entity.dart';
 
 class RegisterModel extends AuthEntity{
+  @override
   final String message;
   const RegisterModel({required super.id,
   required this.message,

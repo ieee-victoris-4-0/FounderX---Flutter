@@ -31,4 +31,9 @@ class UserAlreadyFoundFailure extends Failure{
   @override
   List<Object?> get props => [message];
 }
+class InvalidCredentialsFailure extends Failure{
+  const InvalidCredentialsFailure({required super.message});
+  @override
+  List<Object?> get props => [message];
+}
 

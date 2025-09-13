@@ -34,6 +34,8 @@ class AuthDataRepo implements DomainRepository{
     try{
       final result=await  remoteDataSource.login(loginDto.tojson());
       return Right(LoginModel.fromJson(result));
+    }on InvalidCredentialsException{
+      return Left(InvalidCredentialsFailure(message:tr("Invalid cedentials error")) );
     }
     catch(e){
       return Left(ServerFailure(message:tr("failures.server")) );
@@ -44,6 +46,7 @@ class AuthDataRepo implements DomainRepository{
   Future<Either<Failure, OtherAuthModel>> otherAuthentication() async{
     try{
       final result=await  remoteDataSource.signInWithGoogle();
+
       return Right(OtherAuthModel.fromJson(result));
     }
     catch(e){

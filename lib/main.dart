@@ -1,10 +1,8 @@
-import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:founderx/core/presentation/pages/userscaffold.dart';
 import 'package:founderx/core/routes/routingSys.dart';
-import 'package:founderx/features/auth/presentation/pages/signUp.dart';
+import 'package:founderx/features/splash_screen/presentation/pages/splash1.dart';
 
 import 'global_di/global_di.dart';
 void main() async{
@@ -50,7 +48,7 @@ class MainApp extends StatelessWidget {
       );
     },
       // home:InputTeqnuiqe(),
-      home:SignUpScreen(),
+      home:SplashScreen1(),
       // home:UserScaffold(),
       routes: RoutingSys.allRoutes,
     );

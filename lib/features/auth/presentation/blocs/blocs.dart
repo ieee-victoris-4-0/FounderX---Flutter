@@ -54,17 +54,20 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<InitLoginEvent>(_init);
     on<LoadingLoginEvent>(_loading);
   }
-void _init(LoginEvent event, Emitter<LoginState> emit) {
+ _init(LoginEvent event, Emitter<LoginState> emit) {
   emit(InitialLoginState());
 }
-void _loading(LoadingLoginEvent event, Emitter<LoginState> emit) async{
+ _loading(LoadingLoginEvent event, Emitter<LoginState> emit) async{
   emit(LoadingLoginState());
-  await loginUseCase.call(event.loginDto).then((value) {
+  await loginUseCase.call(event.loginDto).then((value) async{
     value.fold((failure){
       emit(ErrorLoginState(failure: failure));
+      print("====================");
+      print(failure.message);
+      print("====================");
     }, (success) async{
-      await localDataSource.setUserData(success.id.toString(),success.toJson());
       emit(SuccessLoginState());
+       await localDataSource.setUserData(success.id.toString(),success.toJson());
     });
   });
 }

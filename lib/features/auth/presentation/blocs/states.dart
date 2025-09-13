@@ -53,7 +53,7 @@ class LoadingRegisterState extends RegisterState {
   const LoadingRegisterState();
 }
 class SuccessRegisterState extends RegisterState {
-  final String id;
+  final int id;
   const SuccessRegisterState({required this.id});
 }
 class ErrorRegisterState extends RegisterState {

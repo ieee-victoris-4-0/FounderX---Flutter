@@ -5,7 +5,7 @@ import 'package:founderx/features/investors/presentation/widgets/progress_bar.da
 import 'package:google_fonts/google_fonts.dart';
 
 class InvestorProfile extends StatelessWidget {
-   InvestorProfile({Key? key}) : super(key: key);
+   InvestorProfile({super.key});
   final List<String> svgs=[
     "assets/investors_features/email.svg",
     "assets/investors_features/phone.svg",
@@ -32,7 +32,7 @@ class InvestorProfile extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: size.width * 0.03),
             child: Align(
               alignment: Alignment(0, 1),
-              child: Container(
+              child: SizedBox(
                 height: size.height * 0.8,
                 child: Column(
                   mainAxisSize: MainAxisSize.max,

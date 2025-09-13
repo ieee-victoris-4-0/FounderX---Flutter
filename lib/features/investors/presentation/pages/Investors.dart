@@ -55,7 +55,7 @@ class Investors extends StatelessWidget {
                         page: InvestorProfile(),
                       ));
                     },
-                    child: Container(
+                    child: SizedBox(
                       height: size.height * 0.3,
                       child: Stack(
                         fit: StackFit.expand,

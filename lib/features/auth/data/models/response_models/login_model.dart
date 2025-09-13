@@ -3,10 +3,10 @@ import 'package:founderx/features/auth/domain/entity/auth_entity.dart';
 class LoginModel extends AuthEntity{
   final String createdAt;
   final String updatedAt;
-  final bool isverified;
   final String verificationCodeSentAt;
   final String role;
   final String emailVerifiedAt;
+  @override
   final String message;
   const LoginModel({
    required super.id,
@@ -15,7 +15,6 @@ class LoginModel extends AuthEntity{
   required super.token,
   required this.createdAt,
   required this.updatedAt,
-  required this.isverified,
   required this.verificationCodeSentAt,
   required this.role,
   required this.emailVerifiedAt,
@@ -28,11 +27,10 @@ class LoginModel extends AuthEntity{
       fullName: json["user"]["name"],
       createdAt: json["user"]["created_at"],
       updatedAt: json["user"]["updated_at"],
-      isverified: json["verified"],
-      verificationCodeSentAt: json["verification_code_sent_at"],
+      verificationCodeSentAt: json["user"]["verification_code_sent_at"],
+      emailVerifiedAt: json["user"]["email_verified_at"],
       token: json["token"],
       role: json["user"]["role"],
-      emailVerifiedAt: json["user"]["email_verified_at"],
       message: json["message"],
     );
    }
@@ -40,15 +38,14 @@ Map<String, dynamic> toJson() {
   return {
     "user": {
       "id": id,
-      "email": email,
       "name": fullName,
+      "email": email,
+      "email_verified_at": emailVerifiedAt,
+      "role": role,
+      "verification_code_sent_at": verificationCodeSentAt,
       "created_at": createdAt,
       "updated_at": updatedAt,
-      "role": role,
-      "email_verified_at": emailVerifiedAt,
     },
-    "verified": isverified,
-    "verification_code_sent_at": verificationCodeSentAt,
     "token": token,
     "message": message,
   };
@@ -61,7 +58,6 @@ Map<String, dynamic> toJson() {
     token,
     createdAt,
     updatedAt,
-    isverified,
     verificationCodeSentAt,
     role,
     emailVerifiedAt,

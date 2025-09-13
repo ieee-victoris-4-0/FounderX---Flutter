@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:founderx/core/presentation/pages/userscaffold.dart';
 import 'package:founderx/core/transitions/slide_page.dart';
 import 'package:founderx/features/FounderSetUpProfile/presentation/blocs/blocs.dart';
+import 'package:founderx/features/FounderSetUpProfile/presentation/pages/Loading_page.dart';
 
 import 'package:founderx/features/FounderSetUpProfile/presentation/widgets/progressBar.dart';
 import 'package:founderx/features/FounderSetUpProfile/presentation/widgets/titleWidget.dart';
@@ -125,7 +125,7 @@ class Setup10 extends StatelessWidget {
                     alignment: const Alignment(0, 0.8),
                     child: Analyzebutton(
                       onTap: () {
-                        Navigator.of(context).push(SlidePageRoute(page: UserScaffold()));
+                        Navigator.of(context).push(SlidePageRoute(page: LoadingPage()));
                       },
                       text: "setup10.next",
                       state: state,
